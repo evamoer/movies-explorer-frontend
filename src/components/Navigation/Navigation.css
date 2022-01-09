@@ -1,0 +1,182 @@
+/* ----- Навигация по сайту при loggedIn === true ----- */
+
+.navigation__menu-button {
+  position: fixed;
+  all: unset;
+  width: 40px;
+  height: 43px;
+  background-image: url('../../images/burger.svg');
+  background-size: cover;
+  background-position: center;
+  background-color: #FAFAFA;
+  cursor: pointer;
+  transition: opacity .2s linear;
+  z-index: 1;
+  opacity: 1;
+}
+
+.navigation__menu-button:hover {
+  opacity: .6;
+}
+
+.navigation__menu-button_type_close {
+  background-image: url('../../images/close.svg');
+}
+
+.navigation__menu_type_logged-in {
+  transform: translateX(100%);
+  transition: .4s ease;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: #fafafa;
+  display: flex;
+  justify-content: center;
+}
+
+.navigation__menu_type_active {
+  transform: translateX(0);
+}
+
+.navigation__menu-list_type_logged-in {
+  margin: 144px 0 0 0;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+.navigation__menu-item_type_logged-in {
+  text-align: center;
+  display: block;
+  margin-bottom: 24px;
+  width: 100%;
+  max-width: 300px;
+}
+
+.navigation__menu-link_type_logged-in {
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 500;
+}
+
+.navigation__menu-link_type_logged-in::after {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  opacity: 0;
+  transition: opacity .2s linear;
+}
+
+.navigation__menu-link_type_logged-in:hover::after {
+  opacity: 1;
+}
+
+.navigation__menu-item_type_profile {
+  position: absolute;
+  bottom: 46px;
+  right: 0;
+}
+
+.navigation__menu-link_type_profile {
+  all: unset;
+  background-image: url('../../images/profile.svg');
+  background-size: cover;
+  width: 100px;
+  height: 32px;
+  cursor: pointer;
+  transition: opacity .2s linear;
+}
+
+.navigation__menu-link_type_profile:hover {
+  opacity: .6;
+}
+
+/* ----- Навигация по сайту при loggedIn === false ----- */
+
+.navigation_menu_type_logged-out {
+  width: 100%;
+  max-width: 132px;
+  height: 43px;
+  display: flex;
+}
+
+.navigation__menu-list_type_logged-out {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation__menu-item_type_logged-out {
+  display: flex;
+  align-items: center;
+}
+
+.navigation__menu-link_type_logged-out {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 10px;
+  font-style: normal;
+  line-height: 1.6;
+  transition: opacity 0.2s linear;
+  cursor: pointer;
+}
+
+.navigation__menu-link_type_logged-out:hover {
+  opacity: 0.8;
+}
+
+.navigation__menu-link_type_signup {
+  color: #000;
+}
+
+.navigation__menu-link_type_signin {
+  color: #fff;
+  background-color: #3456f3;
+  padding: 5px 12px;
+  border-radius: 3px;
+}
+
+@media screen and (min-width: 321px) {
+  .navigation__menu-button {
+    width: 44px;
+    height: 44px;
+  }
+  .navigation_menu_type_logged-out {
+    max-width: 183px;
+    height: 44px;
+  }
+  .navigation__menu-link_type_logged-out {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  .navigation__menu-link_type_signin {
+    padding: 8px 20px;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .navigation__menu_type_logged-in {
+    width: 520px;
+  }
+
+  .navigation__menu-list_type_logged-in {
+    margin-top: 159px;
+  }
+
+  .navigation__menu-item_type_profile {
+    bottom: 90px;
+  }
+}
