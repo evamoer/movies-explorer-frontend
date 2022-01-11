@@ -2,9 +2,9 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="footer section">
       <h2 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
-      <hr className="footer__row"></hr>
+      <hr className="row footer__row"></hr>
       <ul className="footer__social-list">
         <li className="footer__social-item">
           <a href="#" className="footer__social-link">Яндекс.Практикум</a>

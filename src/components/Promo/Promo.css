@@ -1,13 +1,17 @@
-.promo {
+.section {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.promo {
+  min-height: 570px;
   background-image: url('../../images/landing-logo.svg');
   background-size: 248px 248px;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 570px;
   background-color: #DDDEE3;
-  display: flex;
-  justify-content: center;
 }
 
 .promo__title {

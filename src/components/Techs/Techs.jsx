@@ -2,11 +2,11 @@ import React from 'react';
 
 const Techs = () => {
   return (
-    <section className="techs">
-      <h2 className="techs__title">Технологии</h2>
-      <hr className="techs__row"></hr>
+    <section className="techs section">
+      <h2 className="section__title techs__title">Технологии</h2>
+      <hr className="row techs__row"></hr>
       <h3 className="techs__subtitle">7 технологий</h3>
-      <p className="techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+      <p className="section__description techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
       <ul className="techs__list">
         <li className="techs__item">
           <p className="techs__name">HTML</p>
