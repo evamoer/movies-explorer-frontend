@@ -2,6 +2,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  flex: 0 0 auto;
 }
 
 .header_type_logged-in {
@@ -12,7 +13,7 @@
   background-color: #DDDEE3;
 }
 
-.header__container {
+.header__content {
   width: 100%;
   max-width: 292px;
   padding: 15px 14px 16px;
