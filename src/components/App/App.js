@@ -2,6 +2,7 @@ import React from 'react';
 import {Route, Switch} from "react-router-dom";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
+import Footer from "../Footer/Footer";
 
 const App = () => {
   return (
@@ -29,7 +30,7 @@ const App = () => {
           {/*  </Route>*/}
         </Switch>
       </main>
-      {/*<Footer/>*/}
+      <Footer/>
     </>
   );
 }

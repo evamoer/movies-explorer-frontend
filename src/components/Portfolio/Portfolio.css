@@ -25,34 +25,41 @@
   padding-bottom: 18px;
   border-bottom: 1px solid #E6E6E6;
   margin-bottom: 20px;
-  position: relative;
+
 }
 
 .portfolio__item:last-child {
-  margin-botton: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+  margin-bottom: 0;
 }
-
-.portfolio__item::after {
-  content: '↗';
-  width: 18px;
-  height: 28px;
-  /*background-image: url('../../images/arrow.svg');*/
-  /*background-size: contain;*/
-  /*background-repeat: no-repeat;*/
-  /*background-position: center;*/
-  position: absolute;
-  bottom: 19px;
-  right: 0;
-}
-
 
 .portfolio__link {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+  color: #000;
+}
+
+.portfolio__website {
+  margin: 0;
+  padding: 0;
   font-family: Inter;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 28px;
   letter-spacing: -0.04em;
-  text-decoration: none;
-  color: #000;
+
+}
+
+.portfolio__arrow {
+  margin: 0;
+  padding: 0;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: -0.04em;
 }

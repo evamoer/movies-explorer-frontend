@@ -1,8 +1,15 @@
 .header {
   width: 100%;
-  background-color: #DDDEE3;
   display: flex;
   justify-content: center;
+}
+
+.header_type_logged-in {
+  background-color: #FAFAFA;
+}
+
+.header_type_logged-out {
+  background-color: #DDDEE3;
 }
 
 .header__container {
