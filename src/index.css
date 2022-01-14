@@ -64,3 +64,5 @@ body {
 @import url('./components/Login/Login.css');
 
 @import url('./components/Register/Register.css');
+
+@import url('./components/NotFound/NotFound.css');

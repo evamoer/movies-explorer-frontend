@@ -8,8 +8,8 @@ const Register = () => {
       <h2 className="register__title">Добро пожаловать!</h2>
       <form className="register__form">
         <div className="register__row">
-          <label className="register__label" htmlFor="register__input-email">Имя</label>
-          <input className="register__input" type="text" id="register__input-email" value="Виталий" required/>
+          <label className="register__label" htmlFor="register__input-name">Имя</label>
+          <input className="register__input" type="text" id="register__input-name" value="Виталий" required/>
         </div>
         <div className="register__row">
           <label className="register__label" htmlFor="register__input-email">E-mail</label>

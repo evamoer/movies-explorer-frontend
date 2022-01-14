@@ -8,12 +8,13 @@ import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
+import NotFound from "../NotFound/NotFound";
 
 const App = () => {
   const location = useLocation();
   return (
     <>
-      {(location.pathname !== '/signin') && (location.pathname !== '/signup') && <Header/>}
+      {(location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile') && <Header/>}
       <main className="main">
         <Switch>
           <Route exact path="/">
@@ -33,6 +34,9 @@ const App = () => {
             </Route>
             <Route exact path="/signup">
               <Register/>
+            </Route>
+            <Route path="*">
+              <NotFound/>
             </Route>
         </Switch>
       </main>

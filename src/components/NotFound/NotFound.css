@@ -1,0 +1,39 @@
+.notfound {
+  max-width: 300px;
+  height: 100vh;
+  position: relative;
+}
+
+.notfound__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.notfound__title {
+  margin: 0 0 10px 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 80px;
+  line-height: 97px;
+  text-align: center;
+}
+
+.notfound__subtitle {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+}
+
+.notfound__link {
+  position: absolute;
+  bottom: 30px;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #3456F3;
+}
