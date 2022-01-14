@@ -60,3 +60,5 @@ body {
 @import url('./components/SavedMovies/SavedMovies.css');
 
 @import url('./components/Profile/Profile.css');
+
+@import url('./components/Login/Login.css');

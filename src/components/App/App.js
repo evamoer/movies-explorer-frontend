@@ -6,12 +6,13 @@ import Movies from "../Movies/Movies";
 import Footer from "../Footer/Footer";
 import SavedMovies from "../SavedMovies/SavedMovies";
 import Profile from "../Profile/Profile";
+import Login from "../Login/Login";
 
 const App = () => {
   const location = useLocation();
   return (
     <>
-      <Header/>
+      {(location.pathname !== '/signin') && (location.pathname !== '/signup') && <Header/>}
       <main className="main">
         <Switch>
           <Route exact path="/">
@@ -26,9 +27,9 @@ const App = () => {
             <Route exact path="/profile">
               <Profile/>
             </Route>
-          {/*  <Route exact path="/signin">*/}
-          {/*    <Login/>*/}
-          {/*  </Route>*/}
+            <Route exact path="/signin">
+              <Login/>
+            </Route>
           {/*  <Route exact path="/signup">*/}
           {/*    <Register/>*/}
           {/*  </Route>*/}
