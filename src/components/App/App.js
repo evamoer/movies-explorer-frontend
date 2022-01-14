@@ -14,7 +14,7 @@ const App = () => {
   const location = useLocation();
   return (
     <>
-      {(location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile') && <Header/>}
+      {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile')) && <Header/>}
       <main className="main">
         <Switch>
           <Route exact path="/">
@@ -40,7 +40,7 @@ const App = () => {
             </Route>
         </Switch>
       </main>
-      {(location.pathname !== '/profile') || (location.pathname !== '/signin') || (location.pathname !== '/signup') && <Footer/>}
+      {((location.pathname !== '/profile') || (location.pathname !== '/signin') || (location.pathname !== '/signup')) && <Footer/>}
     </>
   );
 }
