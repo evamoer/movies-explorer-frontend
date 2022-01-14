@@ -4,6 +4,7 @@ import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
 import Footer from "../Footer/Footer";
+import SavedMovies from "../SavedMovies/SavedMovies";
 
 const App = () => {
   return (
@@ -17,9 +18,9 @@ const App = () => {
             <Route exact path="/movies">
               <Movies/>
             </Route>
-          {/*  <Route exact path="/savedmovies">*/}
-          {/*    <SavedMovies/>*/}
-          {/*  </Route>*/}
+            <Route exact path="/savedmovies">
+              <SavedMovies/>
+            </Route>
           {/*  <Route exact path="/profile">*/}
           {/*    <Profile/>*/}
           {/*  </Route>*/}

@@ -1,7 +1,9 @@
 import React from 'react';
+import {useLocation} from "react-router-dom";
 
 const MoviesCard = ({name, duration, poster, isSaved}) => {
-  console.log({name, duration, poster, isSaved})
+  const location = useLocation();
+
   return (
     <li className="moviecard movieslist__item">
       <div className="moviecard__info">
@@ -11,7 +13,11 @@ const MoviesCard = ({name, duration, poster, isSaved}) => {
       <figure className="moviecard__poster-container">
         <img className="moviecard__poster-image" src={poster} alt={`постер к фильму ${name}`}/>
       </figure>
-      <button className={`moviecard__save-button ${isSaved ? 'moviecard__save-button_type_saved' : 'moviecard__save-button_type_not-saved'}`}></button>
+      <button
+        className={`moviecard__save-button
+          ${isSaved ? 'moviecard__save-button_type_saved' : 'moviecard__save-button_type_not-saved'}
+          ${(location.pathname === '/savedmovies') && 'moviecard__save-button_type_remove'}`}>
+      </button>
     </li>
   );
 };

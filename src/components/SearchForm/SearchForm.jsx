@@ -3,7 +3,7 @@ import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 
 const SearchForm = () => {
   return (
-    <form className="search section">
+    <form className="search">
       <div className="search__bar">
         <input
           type="text"
