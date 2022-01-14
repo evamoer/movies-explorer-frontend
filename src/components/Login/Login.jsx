@@ -21,7 +21,6 @@ const Login = () => {
         <p className="login__question">Ещё не зарегистрированы?</p>
         <a className="login__link" href="#">Регистрация</a>
       </div>
-
     </section>
   );
 };
