@@ -16,7 +16,6 @@
 .header__content {
   width: 100%;
   max-width: 292px;
-  padding: 15px 14px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -27,9 +26,17 @@
   height: 38px;
 }
 
+.header__content_type_logged-out {
+  padding: 18px 14px;
+}
+
+.header__content_type_logged-in {
+  padding: 15px 14px 16px;
+}
+
 @media screen and (min-width: 321px) {
-  .header__container {
+  .header__content_type_logged-out {
     max-width: 708px;
-    padding: 15px 30px;
+    padding: 18px 30px;
   }
 }

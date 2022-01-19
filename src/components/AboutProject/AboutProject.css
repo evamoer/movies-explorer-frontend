@@ -1,17 +1,5 @@
 .aboutproject {
-  width: 100%;
   max-width: 284px;
-  display: flex;
-  flex-direction: column;
-}
-
-.section__title {
-  margin: 0;
-  padding: 0;
-  font-weight: normal;
-  font-size: 18px;
-  line-height: 22px;
-  letter-spacing: -0.04em;
 }
 
 .aboutproject__title {
@@ -19,22 +7,17 @@
   width: 100%;
 }
 
-.row {
-  margin: 0;
-  width: 100%;
-  height: 1px;
-  border: none;
-  background-color: #000;
-}
-
 .aboutproject__row {
   margin: 0 0 60px 0;
 }
 
 .aboutproject__list {
-  list-style: none;
   margin: 0 0 60px 0;
+  width: 100%;
   padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
 }
 
 .aboutproject__item {
@@ -47,9 +30,12 @@
 
 .aboutproject__subtitle {
   margin: 0 0 16px 0;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
 }
 
-.section__description {
+.aboutproject__description {
   margin: 0;
   padding: 0;
   font-weight: normal;
@@ -59,6 +45,11 @@
 
 .aboutproject__ratio {
   margin: 0 0 93px 0;
+  padding: 0;
+  list-style: none;
+  height: 35px;
+  width: 100%;
+  max-width: 284px;
   display: flex;
 }
 
@@ -66,48 +57,150 @@
   display: inline-block;
   margin: 0;
   padding: 0;
-  height: 35px;
+  width: 100%;
 }
 
 .aboutproject__ratio-part_type_backend {
-  width: 80px;
-  height: 13px;
-  padding: 11px 10px;
+  width: 100%;
+  max-width: 100px;
   background-color: #3456F3;
-  color: #fff;
+  position: relative;
+}
+
+.aboutproject__ratio-part_type_backend::before {
+  content: '1 неделя';
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-size: 11px;
   line-height: 13px;
+  color: #FFF;
   text-align: center;
-  position: relative;
 }
 
 .aboutproject__ratio-part_type_backend::after {
   content: 'Back-end';
   width: 100%;
-  color: #A0A0A0;
   position: absolute;
-  bottom: -21px;
+  bottom: -23px;
   left: 50%;
   transform: translate(-50%, 0);
+  font-size: 11px;
+  line-height: 13px;
+  color: #A0A0A0;
+  text-align: center;
 }
 
 .aboutproject__ratio-part_type_frontend {
-  width: 80px;
+  width: 100%;
+  max-width: 184px;
   height: 13px;
   padding: 11px 52px;
   background-color: #F2F2F2;
-  font-size: 11px;
-  line-height: 13px;
   text-align: center;
   position: relative;
+}
+
+.aboutproject__ratio-part_type_frontend::before {
+  content: '4 недели';
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  line-height: 13px;
+  color: #000;
+  text-align: center;
 }
 
 .aboutproject__ratio-part_type_frontend::after {
   content: 'Front-end';
   width: 100%;
-  color: #A0A0A0;
   position: absolute;
-  bottom: -21px;
+  bottom: -23px;
   left: 50%;
   transform: translate(-50%, 0);
+  font-size: 11px;
+  line-height: 13px;
+  color: #A0A0A0;
+  text-align: center;
+}
+
+@media screen and (min-width: 425px) {
+  .aboutproject {
+    max-width: 668px;
+  }
+
+  .aboutproject__title {
+    margin: 90px 0 23px 0;
+  }
+
+  .aboutproject__row {
+    margin-bottom: 70px;
+  }
+
+  .aboutproject__list {
+    flex-direction: row;
+    margin-bottom: 93px;
+  }
+
+  .aboutproject__item {
+    max-width: 319px;
+    margin: 0 30px 0 0;
+  }
+
+  .aboutproject__item:last-child {
+    margin-right: 0;
+  }
+
+  .aboutproject__subtitle {
+    margin-bottom: 22px;
+    font-size: 20px;
+    line-height: 24px;
+  }
+
+  .aboutproject__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+
+  .aboutproject__ratio {
+    max-width: 668px;
+    height: 36px;
+    margin-bottom: 121px;
+  }
+
+  .aboutproject__ratio-part_type_backend {
+    max-width: 140px;
+  }
+
+  .aboutproject__ratio-part_type_backend::before {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .aboutproject__ratio-part_type_backend::after {
+    font-size: 14px;
+    line-height: 17px;
+    bottom: -31px;
+  }
+
+  .aboutproject__ratio-part_type_frontend {
+    max-width: 528px;
+  }
+
+  .aboutproject__ratio-part_type_frontend::before {
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .aboutproject__ratio-part_type_frontend::after {
+    font-size: 14px;
+    line-height: 17px;
+    bottom: -31px;
+  }
+
 }

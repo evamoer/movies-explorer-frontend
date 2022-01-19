@@ -1,26 +1,38 @@
 import React from 'react';
+import Row from "../Row/Row";
+import Section from "../Section/Section";
+const techsRowClassName = 'techs__row';
+const techsSectionClassName = 'section_type_techs';
+const techsContentClassName = 'techs';
+const techsTitle = 'Технологии';
+const techsTitleClassName = 'techs__title';
+
+const aboutProjectRowClassName = 'aboutproject__row';
+const aboutProjectSectionClassName = 'section_type_aboutproject';
+const aboutProjectContentClassName = 'techs';
+const aboutProjectTitle = 'О проекте';
+const aboutProjectTitleClassName = 'aboutproject__title';
 
 const AboutProject = () => {
+
   return (
-    <section className="aboutproject section">
-      <h2 className="section__title aboutproject__title">О проекте</h2>
-      <hr className="row aboutproject__row"></hr>
+    <Section sectionClassName={aboutProjectSectionClassName} sectionContentClassName={aboutProjectContentClassName} sectionTitle={aboutProjectTitle} sectionTitleClassName={aboutProjectTitleClassName}>
+      <Row rowClassName={aboutProjectRowClassName}/>
       <ul className="aboutproject__list">
         <li className="aboutproject__item">
-          <h3 className="section__title aboutproject__subtitle">Дипломный проект включал 5 этапов</h3>
-          <p className="section__description">Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>
+          <h3 className="aboutproject__subtitle">Дипломный проект включал 5 этапов</h3>
+          <p className="aboutproject__description">Составление плана, работу над бэкендом, вёрстку, добавление функциональности и финальные доработки.</p>
         </li>
         <li className="aboutproject__item">
-          <h3 className="section__title aboutproject__subtitle">На выполнение диплома ушло 5 недель</h3>
-          <p className="section__description">У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
+          <h3 className="aboutproject__subtitle">На выполнение диплома ушло 5 недель</h3>
+          <p className="aboutproject__description">У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно защититься.</p>
         </li>
       </ul>
-      <div className="aboutproject__ratio">
-        <p className="aboutproject__ratio-part aboutproject__ratio-part_type_backend">1 неделя</p>
-        <p className="aboutproject__ratio-part aboutproject__ratio-part_type_frontend">4 недели</p>
-      </div>
-
-    </section>
+      <ul className="aboutproject__ratio">
+        <li className="aboutproject__ratio-part aboutproject__ratio-part_type_backend"></li>
+        <li className="aboutproject__ratio-part aboutproject__ratio-part_type_frontend"></li>
+      </ul>
+    </Section>
   );
 };
 

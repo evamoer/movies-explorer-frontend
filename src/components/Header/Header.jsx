@@ -9,15 +9,14 @@ const Header = () => {
   useEffect(() => {
     (location.pathname === '/') ? setLoggedIn(false) : setLoggedIn(true)
   }, []);
-  
+
   return (
     <header className={`header ${loggedIn? 'header_type_logged-in' : 'header_type_logged-out'}`}>
-      <div className="header__content">
+      <div className={`header__content ${loggedIn? 'header__content_type_logged-in' : 'header__content_type_logged-out'}`}>
         <img src={logopath} alt="Логотип сайта Movies Explorer" className="header__logo"/>
         <Navigation loggedIn={loggedIn}/>
       </div>
     </header>
   )
 }
-
 export default Header;

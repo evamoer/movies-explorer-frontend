@@ -1,12 +1,18 @@
 import React from 'react';
+import Section from "../Section/Section";
+import Row from "../Row/Row";
+const techsRowClassName = 'techs__row';
+const techsSectionClassName = 'section_type_techs';
+const techsContentClassName = 'techs';
+const techsTitle = 'Технологии';
+const techsTitleClassName = 'techs__title';
 
 const Techs = () => {
   return (
-    <section className="techs section">
-      <h2 className="section__title techs__title">Технологии</h2>
-      <hr className="row techs__row"></hr>
+    <Section sectionClassName={techsSectionClassName} sectionContentClassName={techsContentClassName} sectionTitle={techsTitle} sectionTitleClassName={techsTitleClassName}>
+      <Row rowClassName={techsRowClassName}/>
       <h3 className="techs__subtitle">7 технологий</h3>
-      <p className="section__description techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
+      <p className="techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
       <ul className="techs__list">
         <li className="techs__item">
           <p className="techs__name">HTML</p>
@@ -30,7 +36,7 @@ const Techs = () => {
           <p className="techs__name">MongoDB</p>
         </li>
       </ul>
-    </section>
+    </Section>
   );
 };
 
