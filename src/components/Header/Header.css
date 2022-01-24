@@ -2,7 +2,6 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  flex: 0 0 auto;
 }
 
 .header_type_logged-in {
@@ -40,3 +39,11 @@
     padding: 18px 30px;
   }
 }
+
+@media screen and (min-width: 1024px) {
+  .header__content_type_logged-out {
+    max-width: 1140px;
+    padding: 18px 70px;
+  }
+}
+

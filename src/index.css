@@ -19,7 +19,7 @@ body {
   align-items: center;
 }
 
-.main {
+.content {
   width: 100%;
   display: flex;
   flex-direction: column;

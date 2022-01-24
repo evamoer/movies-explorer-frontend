@@ -1,15 +1,9 @@
 import React from 'react';
 import Row from "../Row/Row";
 import Section from "../Section/Section";
-const techsRowClassName = 'techs__row';
-const techsSectionClassName = 'section_type_techs';
-const techsContentClassName = 'techs';
-const techsTitle = 'Технологии';
-const techsTitleClassName = 'techs__title';
-
 const aboutProjectRowClassName = 'aboutproject__row';
 const aboutProjectSectionClassName = 'section_type_aboutproject';
-const aboutProjectContentClassName = 'techs';
+const aboutProjectContentClassName = 'aboutproject';
 const aboutProjectTitle = 'О проекте';
 const aboutProjectTitleClassName = 'aboutproject__title';
 

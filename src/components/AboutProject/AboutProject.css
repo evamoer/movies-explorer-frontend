@@ -1,10 +1,5 @@
-.aboutproject {
-  max-width: 284px;
-}
-
 .aboutproject__title {
-  margin: 70px 0 28px 0;
-  width: 100%;
+  max-width: 284px;
 }
 
 .aboutproject__row {
@@ -13,9 +8,9 @@
 
 .aboutproject__list {
   margin: 0 0 60px 0;
-  width: 100%;
   padding: 0;
   list-style: none;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -30,38 +25,33 @@
 
 .aboutproject__subtitle {
   margin: 0 0 16px 0;
-  font-weight: normal;
+  font-weight: 400;
   font-size: 18px;
   line-height: 22px;
 }
 
 .aboutproject__description {
   margin: 0;
-  padding: 0;
-  font-weight: normal;
   font-size: 11px;
   line-height: 16px;
 }
 
 .aboutproject__ratio {
-  margin: 0 0 93px 0;
+  margin: 0 auto 93px;
   padding: 0;
   list-style: none;
-  height: 35px;
   width: 100%;
   max-width: 284px;
   display: flex;
 }
 
 .aboutproject__ratio-part {
-  display: inline-block;
-  margin: 0;
-  padding: 0;
+  min-height: 35px;
   width: 100%;
+  display: inline-block;
 }
 
 .aboutproject__ratio-part_type_backend {
-  width: 100%;
   max-width: 100px;
   background-color: #3456F3;
   position: relative;
@@ -70,34 +60,31 @@
 .aboutproject__ratio-part_type_backend::before {
   content: '1 неделя';
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 11px;
   line-height: 13px;
   color: #FFF;
   text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .aboutproject__ratio-part_type_backend::after {
   content: 'Back-end';
   width: 100%;
-  position: absolute;
-  bottom: -23px;
-  left: 50%;
-  transform: translate(-50%, 0);
   font-size: 11px;
   line-height: 13px;
   color: #A0A0A0;
   text-align: center;
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 .aboutproject__ratio-part_type_frontend {
-  width: 100%;
   max-width: 184px;
-  height: 13px;
-  padding: 11px 52px;
   background-color: #F2F2F2;
   text-align: center;
   position: relative;
@@ -106,54 +93,32 @@
 .aboutproject__ratio-part_type_frontend::before {
   content: '4 недели';
   width: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   font-size: 11px;
   line-height: 13px;
   color: #000;
   text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .aboutproject__ratio-part_type_frontend::after {
   content: 'Front-end';
   width: 100%;
-  position: absolute;
-  bottom: -23px;
-  left: 50%;
-  transform: translate(-50%, 0);
   font-size: 11px;
   line-height: 13px;
   color: #A0A0A0;
   text-align: center;
+  position: absolute;
+  bottom: -23px;
+  left: 50%;
+  transform: translate(-50%, 0);
 }
 
 @media screen and (min-width: 425px) {
-  .aboutproject {
-    max-width: 668px;
-  }
-
-  .aboutproject__title {
-    margin: 90px 0 23px 0;
-  }
-
   .aboutproject__row {
     margin-bottom: 70px;
-  }
-
-  .aboutproject__list {
-    flex-direction: row;
-    margin-bottom: 93px;
-  }
-
-  .aboutproject__item {
-    max-width: 319px;
-    margin: 0 30px 0 0;
-  }
-
-  .aboutproject__item:last-child {
-    margin-right: 0;
   }
 
   .aboutproject__subtitle {
@@ -168,9 +133,12 @@
   }
 
   .aboutproject__ratio {
-    max-width: 668px;
-    height: 36px;
     margin-bottom: 121px;
+    max-width: 668px;
+  }
+
+  .aboutproject__ratio-part {
+    min-height: 36px;
   }
 
   .aboutproject__ratio-part_type_backend {
@@ -202,5 +170,61 @@
     line-height: 17px;
     bottom: -31px;
   }
+}
 
+@media screen and (min-width: 768px) {
+  .aboutproject__title {
+    max-width: 600px;
+  }
+
+  .aboutproject__list {
+    margin-bottom: 93px;
+    flex-direction: row;
+  }
+
+  .aboutproject__item {
+    margin: 0 30px 0 0;
+    max-width: 319px;
+  }
+
+  .aboutproject__item:last-child {
+    margin-right: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .aboutproject__item {
+    margin: 0 40px 0 0;
+    max-width: 550px;
+  }
+
+  .aboutproject__subtitle {
+    margin-bottom: 26px;
+  }
+
+  .aboutproject__description {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .aboutproject__list {
+    margin-bottom: 110px;
+  }
+
+  .aboutproject__ratio {
+    margin-bottom: 141px;
+    max-width: 1140px;
+  }
+
+  .aboutproject__ratio-part {
+    min-height: 36px;
+  }
+
+  .aboutproject__ratio-part_type_backend {
+    max-width: 228px;
+  }
+
+  .aboutproject__ratio-part_type_frontend {
+    max-width: 912px;
+  }
 }

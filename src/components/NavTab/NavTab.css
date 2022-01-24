@@ -2,7 +2,6 @@
   min-height: 66px;
   width: 100%;
   display: flex;
-  flex: 0 0 auto;
   justify-content: center;
   background-color: #F5F5F5;
 }
@@ -23,8 +22,7 @@
 }
 
 .navtab__link {
-  text-decoration-line: underline;
-  font-style: normal;
+  text-decoration: underline;
   font-weight: 500;
   font-size: 11px;
   line-height: 16px;
@@ -38,7 +36,7 @@
   opacity: .8;
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 768px) {
   .navtab__list {
     max-width: 276px;
   }

@@ -15,7 +15,7 @@ const App = () => {
   return (
     <>
       {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile')) && <Header/>}
-      <main className="main">
+      <main className="content">
         <Switch>
           <Route exact path="/">
             <Main/>

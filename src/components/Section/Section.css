@@ -5,17 +5,47 @@
   align-items: center;
 }
 
-.section_type_techs{
-  background-color: #F5F5F5;
+.section__content {
+  width: calc(100vw - 36px);
 }
 
 .section__title {
-  font-weight: normal;
+  margin: 70px 0 28px 0;
+  width: 100%;
+  font-weight: 400;
   font-size: 22px;
-  line-height: 27px;
+  line-height: 22px;
   letter-spacing: -0.04em;
 }
 
-@media screen and (min-width: 425px) {
-
+.section_type_techs {
+  background-color: #F5F5F5;
 }
+
+@media screen and (min-width: 425px) {
+  .section__title {
+    line-height: 27px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .section__content {
+    width: calc(100vw - 60px);
+  }
+
+  .section__title {
+    margin: 90px 0 23px 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .section__content {
+    max-width: 1140px;
+  }
+
+  .section__title {
+    margin-top: 110px;
+  }
+}
+
+
