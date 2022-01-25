@@ -31,7 +31,7 @@
   width: 100%;
   max-width: 178px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 

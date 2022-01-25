@@ -10,7 +10,11 @@ const aboutProjectTitleClassName = 'aboutproject__title';
 const AboutProject = () => {
 
   return (
-    <Section sectionClassName={aboutProjectSectionClassName} sectionContentClassName={aboutProjectContentClassName} sectionTitle={aboutProjectTitle} sectionTitleClassName={aboutProjectTitleClassName}>
+    <Section
+      sectionClassName={aboutProjectSectionClassName}
+      sectionContentClassName={aboutProjectContentClassName}
+      sectionTitle={aboutProjectTitle}
+      sectionTitleClassName={aboutProjectTitleClassName}>
       <Row rowClassName={aboutProjectRowClassName}/>
       <ul className="aboutproject__list">
         <li className="aboutproject__item">

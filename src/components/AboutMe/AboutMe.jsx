@@ -1,8 +1,8 @@
 import React from 'react';
-import imagepath from '../../images/student.png';
 import Section from "../Section/Section";
 import Row from "../Row/Row";
 import Portfolio from "../Portfolio/Portfolio";
+import imagepath from '../../images/student.png';
 const aboutmeRowClassName = 'aboutme__row';
 const aboutmeSectionClassName = 'section_type_aboutme';
 const aboutmeContentClassName = 'aboutme';
@@ -27,10 +27,10 @@ const AboutMe = () => {
             начал заниматься фриланс&#8209;заказами&nbsp;и ушёл с постоянной работы.</p>
           <ul className="aboutme__social-list">
             <li className="aboutme__social-item">
-              <a href="#" className="aboutme__social-link">Facebook</a>
+              <a href="https://www.facebook.com/iermoeva" className="aboutme__social-link" target="_blank">Facebook</a>
             </li>
             <li className="aboutme__social-item">
-              <a href="#" className="aboutme__social-link">Github</a>
+              <a href="https://github.com/evamoer" className="aboutme__social-link" target="_blank">Github</a>
             </li>
           </ul>
         </div>

@@ -1,55 +1,40 @@
-import React, {useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Preloader from "../Preloader/Preloader";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import banksypath1 from '../../images/banksy.png';
-import banksypath2 from '../../images/banksy-2.png';
-import banksypath3 from '../../images/banksy-3.png';
-import banksypath4 from '../../images/banksy-4.png';
-import banksypath5 from '../../images/banksy-5.png';
-const defaultMovies = [
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath1,
-    isSaved: true,
-  },
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath2,
-    isSaved: false,
-  },
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath3,
-    isSaved: false,
-  },
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath4,
-    isSaved: true,
-  },
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath5,
-    isSaved: false,
-  },
-];
+import { defaultMovies } from "./moviesSettings";
+import Section from "../Section/Section";
+const moviesSectionClassName = 'section_type_movies';
+const moviesContentClassName = 'movies';
 
 const Movies = () => {
-  const [movies, setMovies] = useState(defaultMovies);
-  const moreFilms = true;
+
+  /*
+  захардкоженные данные для отображения вёрстки согласно макету;
+  при needMorefilms === true появляется компонент Preloader,
+  при needMorefilms === false появляются загруженные фильмы;
+  код будет изменён на этапе 4;
+  */
+
+  const [movies, setMovies] = useState([]);
+  const [needMoreFilms, setNeedMorefilms] = useState(false);
+
+  useEffect(() => {
+    setMovies([...defaultMovies]);
+  }, []);
+
   return (
-    <section className="movies section">
+    <Section
+      sectionClassName={moviesSectionClassName}
+      sectionContentClassName={moviesContentClassName}
+      sectionTitle={null}
+      sectionTitleClassName={null}>
       <SearchForm/>
-      {!(movies.length === 0) && (
-        <MoviesCardList movies={movies} moreFilms={moreFilms}/>
-      )}
-    </section>
+      { (!needMoreFilms)
+        ? <MoviesCardList movies={movies}/>
+        : <Preloader/>
+      }
+    </Section>
   );
 };
 

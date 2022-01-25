@@ -11,13 +11,13 @@ const Footer = () => {
         <div className="footer__info">
           <ul className="footer__list">
             <li className="footer__item">
-              <a href="#" className="footer__link">Яндекс.Практикум</a>
+              <a href="https://practicum.yandex.ru" className="footer__link" target="_blank" rel="noreferrer">Яндекс.Практикум</a>
             </li>
             <li className="footer__item">
-              <a href="#" className="footer__link">Github</a>
+              <a href="https://github.com/evamoer" className="footer__link" target="_blank" rel="noreferrer">Github</a>
             </li>
             <li className="footer__item">
-              <a href="#" className="footer__link">Facebook</a>
+              <a href="https://www.facebook.com/iermoeva" className="footer__link" target="_blank" rel="noreferrer">Facebook</a>
             </li>
           </ul>
           <p className="footer__copyright">© 2022</p>
