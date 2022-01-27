@@ -11,10 +11,19 @@ import Register from "../Register/Register";
 import NotFound from "../NotFound/NotFound";
 
 const App = () => {
+
+    /*
+  захардкоженные данные с помощью useLocation для отображения вёрстки согласно макету;
+  можно изменить состояние loggedIn с false на true и обратно;
+  код будет изменён на этапе 4;
+  */
+
   const location = useLocation();
+  let loggedIn = true;
+
   return (
     <>
-      {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile')) && <Header/>}
+      {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile')) && <Header loggedIn={loggedIn}/>}
       <main className="content">
         <Switch>
           <Route exact path="/">
@@ -40,7 +49,7 @@ const App = () => {
             </Route>
         </Switch>
       </main>
-      {((location.pathname !== '/profile') || (location.pathname !== '/signin') || (location.pathname !== '/signup')) && <Footer/>}
+      {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies')) && <Footer/>}
     </>
   );
 }

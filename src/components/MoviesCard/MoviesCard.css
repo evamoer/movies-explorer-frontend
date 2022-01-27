@@ -1,4 +1,5 @@
 .moviecard {
+  margin: 0;
   padding: 14px 0;
   width: 100%;
   max-width: 300px;
@@ -12,7 +13,7 @@
 }
 
 .moviecard__info {
-  margin-bottom: 14px;
+  margin: 0 0 14px 0;
   width: 100%;
   max-width: 272px;
   display: flex;
@@ -38,10 +39,10 @@
 .moviecard__poster-container {
   margin: 0 0 14px 0;
   padding: 0;
-  overflow: hidden;
   width: 100%;
   max-width: 300px;
   max-height: 168px;
+  overflow: hidden;
 }
 
 .moviecard__poster-image {
@@ -51,7 +52,10 @@
 }
 
 .moviecard__save-button {
-  all: unset;
+  margin: 0;
+  padding:0;
+  border: none;
+  font-family: inherit;
   width: 100px;
   height: 29px;
   border-radius: 30px;
@@ -70,9 +74,9 @@
 }
 
 .moviecard__save-button_type_saved::after {
+  content: '';
   width: 10px;
   height: 8px;
-  content: '';
   background-image: url('../../images/saved-movie-logo.svg');
   background-size: contain;
   background-repeat: no-repeat;
@@ -140,5 +144,17 @@
     margin-bottom: 18px;
     max-width: 342px;
     max-height: 190px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .moviecard {
+    max-width: 360px;
+    max-height: 319px;
+  }
+
+  .moviecard__poster-container {
+    max-width: 360px;
+    max-height: 200px;
   }
 }

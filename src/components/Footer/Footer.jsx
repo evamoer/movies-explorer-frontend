@@ -1,13 +1,13 @@
 import React from 'react';
 import Row from "../Row/Row";
-const footerRowClassName = 'footer__row';
 
 const Footer = () => {
+
   return (
     <footer className="footer">
       <div className="footer__content">
         <h2 className="footer__title">Учебный проект Яндекс.Практикум х BeatFilm.</h2>
-        <Row rowClassName={footerRowClassName}/>
+        <Row rowClassName="footer__row"/>
         <div className="footer__info">
           <ul className="footer__list">
             <li className="footer__item">

@@ -1,21 +1,12 @@
 import React from 'react';
-import Row from "../Row/Row";
 import Section from "../Section/Section";
-const aboutProjectRowClassName = 'aboutproject__row';
-const aboutProjectSectionClassName = 'section_type_aboutproject';
-const aboutProjectContentClassName = 'aboutproject';
-const aboutProjectTitle = 'О проекте';
-const aboutProjectTitleClassName = 'aboutproject__title';
+import Row from "../Row/Row";
 
 const AboutProject = () => {
 
   return (
-    <Section
-      sectionClassName={aboutProjectSectionClassName}
-      sectionContentClassName={aboutProjectContentClassName}
-      sectionTitle={aboutProjectTitle}
-      sectionTitleClassName={aboutProjectTitleClassName}>
-      <Row rowClassName={aboutProjectRowClassName}/>
+    <Section sectionName = "aboutproject" sectionTitleText="О проекте">
+      <Row rowClassName="aboutproject__row"/>
       <ul className="aboutproject__list">
         <li className="aboutproject__item">
           <h3 className="aboutproject__subtitle">Дипломный проект включал 5 этапов</h3>

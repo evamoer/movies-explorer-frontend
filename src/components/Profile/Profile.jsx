@@ -1,23 +1,42 @@
 import React from 'react';
+import Section from '../Section/Section';
+import Form from '../Form/Form';
+import Input from '../Input/Input';
+import Row from '../Row/Row';
+import Submit from '../Submit/Submit';
 
 const Profile = () => {
   return (
-    <section className="profile section">
+    <Section sectionName="profile" sectionTitleText={null}>
       <h2 className="profile__title">Привет, Виталий!</h2>
-      <form className="profile__form">
-        <div className="profile__form-row">
-          <label className="profile__label" for="profile__input-name">Имя</label>
-          <input type="text" className="profile__input" value="Виталий" id="profile__input-name"/>
-        </div>
-        <hr className="row profile__row"></hr>
-        <div className="profile__form-row">
-          <label className="profile__label" for="profile__input-email">E-mail</label>
-          <input type="text" className="profile__input" value="pochta@yandex.ru" id="profile__input-email"/>
-        </div>
-        <button type="submit" className="profile__button profile__button_type_submit">Редактировать</button>
-      </form>
-      <button className="profile__button profile__button_type_logout">Выйти из аккаунта</button>
-    </section>
+      <Form formClassName="profile__form">
+        <Input
+          formName="profile"
+          type="text"
+          name="name"
+          value="Виталий"
+          labelText="Имя"
+          errorStatus={null}
+          errorMessage={null}/>
+        <Row rowClassName="profile__row" />
+        <Input
+          formName="profile"
+          type="text"
+          name="email"
+          value="pochta@yandex.ru"
+          labelText="E-mail"
+          errorStatus={null}
+          errorMessage={null} />
+        <Submit
+          formName="profile"
+          buttonText="Редактировать"
+          questionText={null}
+          linkText={null}
+          linkPath={null}
+          submitClassName={null}/>
+        <button type="button" className="profile__logout-button">Выйти из аккаунта</button>
+      </Form>
+    </Section>
   );
 };
 

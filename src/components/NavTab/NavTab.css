@@ -1,6 +1,6 @@
 .navtab {
-  min-height: 66px;
   width: 100%;
+  min-height: 66px;
   display: flex;
   justify-content: center;
   background-color: #F5F5F5;
@@ -8,10 +8,9 @@
 
 .navtab__list {
   margin: 0;
-  padding: 0;
+  list-style: none;
   width: 100%;
   max-width: 214px;
-  list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;

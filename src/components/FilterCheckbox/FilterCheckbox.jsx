@@ -1,7 +1,6 @@
 import React from 'react';
 
 const FilterCheckbox = () => {
-
   return (
     <div className="filter search__filter">
       <label className="filter__label">

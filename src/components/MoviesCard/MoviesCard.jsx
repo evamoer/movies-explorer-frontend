@@ -1,7 +1,13 @@
 import React from 'react';
-import {useLocation} from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
-const MoviesCard = ({name, duration, poster, isSaved}) => {
+const MoviesCard = ({ name, duration, poster, isSaved }) => {
+
+    /*
+  захардкоженные данные для отображения вёрстки согласно макету;
+  код будет изменён на этапе 4;
+  */
+
   const location = useLocation();
 
   return (

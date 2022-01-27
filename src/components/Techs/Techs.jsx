@@ -1,16 +1,11 @@
 import React from 'react';
 import Section from "../Section/Section";
 import Row from "../Row/Row";
-const techsRowClassName = 'techs__row';
-const techsSectionClassName = 'section_type_techs';
-const techsContentClassName = 'techs';
-const techsTitle = 'Технологии';
-const techsTitleClassName = 'techs__title';
 
 const Techs = () => {
   return (
-    <Section sectionClassName={techsSectionClassName} sectionContentClassName={techsContentClassName} sectionTitle={techsTitle} sectionTitleClassName={techsTitleClassName}>
-      <Row rowClassName={techsRowClassName}/>
+    <Section sectionName = "techs" sectionTitleText="Технологии">
+      <Row rowClassName="techs__row"/>
       <h3 className="techs__subtitle">7 технологий</h3>
       <p className="techs__description">На курсе веб-разработки мы освоили технологии, которые применили в дипломном проекте.</p>
       <ul className="techs__list">

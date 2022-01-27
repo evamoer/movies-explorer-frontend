@@ -1,6 +1,5 @@
 import React from 'react';
 import Row from "../Row/Row";
-const portfolioRowClassName = 'portfolio__row';
 
 const Portfolio = () => {
   return (
@@ -12,14 +11,14 @@ const Portfolio = () => {
             <p className="portfolio__website">Статичный сайт</p>
             <p className="portfolio__arrow">&#8599;</p>
           </a>
-          <Row rowClassName={portfolioRowClassName}/>
+          <Row rowClassName="portfolio__row"/>
         </li>
         <li className="portfolio__item">
           <a href="https://github.com/evamoer/russian-travel" className="portfolio__link" target="_blank" rel="noreferrer">
             <p className="portfolio__website">Адаптивный сайт</p>
             <p className="portfolio__arrow">&#8599;</p>
           </a>
-          <Row rowClassName={portfolioRowClassName}/>
+          <Row rowClassName="portfolio__row"/>
         </li>
         <li className="portfolio__item">
           <a href="https://github.com/evamoer/react-mesto-api-full" className="portfolio__link" target="_blank" rel="noreferrer">

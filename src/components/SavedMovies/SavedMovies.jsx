@@ -1,32 +1,29 @@
-import React, {useState} from 'react';
+import React from 'react';
+import Preloader from "../Preloader/Preloader";
+import Section from "../Section/Section";
 import SearchForm from "../SearchForm/SearchForm";
-import banksypath1 from "../../images/banksy.png";
-import banksypath2 from "../../images/banksy-2.png";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-const defaultMovies = [
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath1,
-    isSaved: true,
-  },
-  {
-    name: 'В погоне за Бенкси',
-    duration: '27 минут',
-    poster: banksypath2,
-    isSaved: false,
-  }]
+import { defaultMovies } from "../../utils/moviesSettings";
 
 const SavedMovies = () => {
-  const [savedMovies, setSavedMovies] = useState(defaultMovies);
-  const moreFilms = false;
+
+  /*
+  захардкоженные данные для отображения вёрстки согласно макету;
+  код будет изменён на этапе 4;
+  */
+
+  let uploadMoviesStatus = false;
+  let updateButtonStatus = false;
+  const savedMovies = defaultMovies.filter((movie, index) => index < 3)
+
   return (
-    <section className="movies section">
-      <SearchForm/>
-      {!(savedMovies.length === 0) && (
-        <MoviesCardList movies={savedMovies} moreFilms={moreFilms}/>
-      )}
-    </section>
+    <Section sectionName="savedmovies" sectionTitleText={null}>
+        <SearchForm/>
+        { (uploadMoviesStatus)
+        ? <Preloader/>
+        : <MoviesCardList movies={savedMovies} updateButtonStatus={updateButtonStatus}/>
+        }
+    </Section>
   );
 };
 

@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Section = ({children, sectionClassName, sectionContentClassName, sectionTitle, sectionTitleClassName}) => {
+const Section = ({ children, sectionName, sectionTitleText }) => {
   return (
-    <section className={`section ${sectionClassName}`}>
-      <div id={sectionContentClassName} className={`section__content ${sectionContentClassName}`}>
-        {(sectionTitle) && <h2 className={`section__title ${sectionTitleClassName}`}>{sectionTitle}</h2>}
+    <section className={`section section_type_${sectionName}`}>
+      <div id={sectionName} className={`section__content ${sectionName}`}>
+        {(sectionTitleText) && <h2 className={`section__title ${sectionName}__title`}>{sectionTitleText}</h2>}
         {children}
       </div>
     </section>

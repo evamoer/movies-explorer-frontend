@@ -1,14 +1,23 @@
 .notfound {
   max-width: 300px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
 }
 
 .notfound__content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notfound__info {
+  margin-bottom: auto;
 }
 
 .notfound__title {
@@ -28,12 +37,43 @@
   text-align: center;
 }
 
-.notfound__link {
-  position: absolute;
-  bottom: 30px;
-  text-decoration: none;
+.notfound__button {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  font-family: inherit;
   font-size: 12px;
   line-height: 15px;
   text-align: center;
   color: #3456F3;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity .2s linear;
+  position: absolute;
+  bottom: 30px;
+}
+
+.notfound__button:hover {
+  opacity: .8;
+}
+
+@media screen and (min-width: 768px) {
+  .notfound {
+    justify-content: center;
+  }
+  .notfound__title {
+    margin-bottom: 5px;
+    font-size: 140px;
+    line-height: 169px;
+  }
+
+  .notfound__subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .notfound__button {
+    bottom: 222px;
+  }
 }

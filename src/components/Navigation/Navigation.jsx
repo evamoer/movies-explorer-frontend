@@ -2,13 +2,11 @@ import React from 'react';
 import LoggedOutNavigation from './LoggedOutNavigation/LoggedOutNavigation';
 import LoggedInNavigation from "./LoggedInNavigation/LoggedInNavigation";
 
-const Navigation = ({ loggedIn, openMenu, handleMenuNavigationClick }) => {
+const Navigation = ({ loggedIn }) => {
 
   return (
     <>
-      { loggedIn
-        ? <LoggedInNavigation openMenu={openMenu} handleMenuNavigationClick={handleMenuNavigationClick}/>
-        : <LoggedOutNavigation /> }
+      { loggedIn ? <LoggedInNavigation /> : <LoggedOutNavigation /> }
     </>
   )
 }

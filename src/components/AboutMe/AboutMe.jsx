@@ -3,16 +3,11 @@ import Section from "../Section/Section";
 import Row from "../Row/Row";
 import Portfolio from "../Portfolio/Portfolio";
 import imagepath from '../../images/student.png';
-const aboutmeRowClassName = 'aboutme__row';
-const aboutmeSectionClassName = 'section_type_aboutme';
-const aboutmeContentClassName = 'aboutme';
-const aboutmeTitle = 'Студент';
-const aboutmeTitleClassName = 'aboutme__title';
 
 const AboutMe = () => {
   return (
-    <Section sectionClassName={aboutmeSectionClassName} sectionContentClassName={aboutmeContentClassName} sectionTitle={aboutmeTitle} sectionTitleClassName={aboutmeTitleClassName}>
-      <Row rowClassName={aboutmeRowClassName}/>
+    <Section sectionName = "aboutme" sectionTitleText="Студент">
+      <Row rowClassName="aboutme__row"/>
       <div className="aboutme__info">
         <figure className="aboutme__info-content aboutme__info-content_type_photo">
           <img src={imagepath} alt="Фотография студента" className="aboutme__photo"/>
@@ -27,10 +22,10 @@ const AboutMe = () => {
             начал заниматься фриланс&#8209;заказами&nbsp;и ушёл с постоянной работы.</p>
           <ul className="aboutme__social-list">
             <li className="aboutme__social-item">
-              <a href="https://www.facebook.com/iermoeva" className="aboutme__social-link" target="_blank">Facebook</a>
+              <a href="https://www.facebook.com/iermoeva" className="aboutme__social-link" rel="noreferrer" target="_blank">Facebook</a>
             </li>
             <li className="aboutme__social-item">
-              <a href="https://github.com/evamoer" className="aboutme__social-link" target="_blank">Github</a>
+              <a href="https://github.com/evamoer" className="aboutme__social-link" rel="noreferrer" target="_blank">Github</a>
             </li>
           </ul>
         </div>

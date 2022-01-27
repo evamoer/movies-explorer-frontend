@@ -12,10 +12,10 @@
 .aboutme__info-content_type_photo {
   margin: 0 0 40px 0;
   padding: 0;
-  overflow: hidden;
   width: 100%;
   max-width: 292px;
   max-height: 352px;
+  overflow: hidden;
   border-radius: 10px;
 }
 
@@ -71,7 +71,6 @@
 }
 
 .aboutme__social-link {
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 18px;
@@ -108,7 +107,6 @@
   }
 }
 
-
 @media screen and (min-width: 600px) {
   .aboutme__row {
     margin: 0 0 66px 0;
@@ -130,9 +128,9 @@
   }
 
   .aboutme__info-content_type_photo {
+    margin-bottom: 0;
     max-width: 255px;
     max-height: 307px;
-    margin-bottom: 0;
   }
 
   .aboutme__info-content_type_text {
@@ -155,21 +153,21 @@
   }
 
   .aboutme__name {
+    margin-bottom: 18px;
     font-size: 50px;
     line-height: 58px;
-    margin-bottom: 18px;
   }
 
   .aboutme__profession {
+    margin-bottom: 26px;
     font-size: 18px;
     line-height: 20px;
-    margin-bottom: 26px;
   }
 
   .aboutme__description {
+    margin-bottom: 99px;
     font-size: 14px;
     line-height: 22px;
-    margin-bottom: 99px;
   }
 
 }

@@ -15,6 +15,7 @@
 
 .footer__title {
   margin: 79px auto 21px;
+  width: 100%;
   max-width: 300px;
   font-weight: 400;
   font-size: 12px;

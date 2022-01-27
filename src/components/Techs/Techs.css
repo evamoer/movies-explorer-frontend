@@ -37,10 +37,8 @@
 
 .techs__item {
   margin: 0 10px 10px 0;
-  /*margin-right: 10px;*/
-  /*margin-bottom: 10px;*/
-  height: 57px;
   width: 84px;
+  height: 57px;
   background-color: #E8E8E8;
   border-radius: 10px;
   display: flex;
