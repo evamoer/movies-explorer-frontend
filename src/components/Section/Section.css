@@ -20,9 +20,7 @@
   letter-spacing: -0.04em;
 }
 
-.section_type_techs {
-  background-color: #F5F5F5;
-}
+
 
 @media screen and (min-width: 425px) {
   .section__title {
@@ -31,6 +29,10 @@
 }
 
 @media screen and (min-width: 768px) {
+  .section_type_techs {
+    background-color: #F5F5F5;
+  }
+
   .section__content {
     width: calc(100vw - 60px);
   }
