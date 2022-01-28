@@ -52,14 +52,19 @@
   background-image: url('../../images/close.svg');
 }
 
+@media screen and (min-width: 321px) {
+  .header__content_type_logged-out, .header__content_type_logged-in {
+    max-width: 708px;
+  }
+
+}
+
 @media screen and (min-width: 425px) {
   .header__content_type_logged-out {
-    max-width: 708px;
     padding: 18px 30px;
   }
 
   .header__content_type_logged-in {
-    max-width: 708px;
     padding: 15px 30px;
   }
 
@@ -72,7 +77,6 @@
 @media screen and (min-width: 769px) {
   .header__content_type_logged-out, .header__content_type_logged-in {
     max-width: 1140px;
-
   }
 }
 

@@ -1,9 +1,10 @@
 .moviecard {
   margin: 0;
   padding: 14px 0;
+  box-sizing: border-box;
   width: 100%;
-  max-width: 300px;
-  max-height: 271px;
+  min-width: 300px;
+  min-height: 271px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -40,8 +41,8 @@
   margin: 0 0 14px 0;
   padding: 0;
   width: 100%;
-  max-width: 300px;
-  max-height: 168px;
+  min-width: 300px;
+  min-height: 168px;
   overflow: hidden;
 }
 
@@ -119,15 +120,28 @@
   transform: translate( -50%, -50%);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 321px) {
+  .moviecard__info {
+    box-sizing: border-box;
+    padding: 0 14px;
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 425px) {
   .moviecard {
     padding: 18px 0;
-    max-width: 342px;
-    max-height: 309px;
   }
-
   .moviecard__info {
     margin-bottom: 18px;
+    padding: 0 18px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .moviecard {
+    max-width: 342px;
+    max-height: 309px;
   }
 
   .moviecard__duration {
