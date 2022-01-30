@@ -3,7 +3,8 @@ import Preloader from "../Preloader/Preloader";
 import Section from "../Section/Section";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { defaultMovies } from "../../utils/moviesSettings";
+// import { defaultMovies } from "../../utils/moviesSettings";
+import {getAllMovies} from "../../utils/MoviesApi";
 
 const Movies = () => {
 
@@ -20,26 +21,37 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    }
+    getAllMovies().then((beatmovies) => {
+      setMovies(beatmovies);
+    });
+    // handleResize();
+    // window.addEventListener('resize', handleResize);
+    // return () => {
+    //   window.removeEventListener('resize', handleResize);
+    // }
   }, []);
 
-  function handleResize() {
-    if (window.innerWidth <= 767) {
-      setMovies(defaultMovies.filter((movie, index) => index < 5));
-    } else if ((window.innerWidth >= 768)  && (window.innerWidth < 1280)) {
-      setMovies(defaultMovies.filter((movie, index) => index < 8));
-    } else {
-      setMovies(defaultMovies);
-    }
+  // function handleResize() {
+  //   if (window.innerWidth <= 767) {
+  //     setMovies(defaultMovies.filter((movie, index) => index < 5));
+  //   } else if ((window.innerWidth >= 768)  && (window.innerWidth < 1280)) {
+  //     setMovies(defaultMovies.filter((movie, index) => index < 8));
+  //   } else {
+  //     setMovies(defaultMovies);
+  //   }
+  // }node test.js
+
+  const handleSearchSubmit = () => {
+    getAllMovies().then((movies) => {
+      console.log(movies);
+      setMovies(movies);
+    });
   }
+
 
   return (
     <Section sectionName="movies" sectionTitleText={null}>
-      <SearchForm/>
+      <SearchForm handleSearchSubmit={handleSearchSubmit}/>
       { (uploadMoviesStatus)
         ? <Preloader/>
         : <MoviesCardList movies={movies} updateButtonStatus={updateButtonStatus}/>

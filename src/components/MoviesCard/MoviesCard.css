@@ -24,17 +24,23 @@
 .moviecard__name {
   margin: 0;
   padding: 0;
+  width: 70%;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .moviecard__duration {
   margin: 0;
   padding: 0;
+  width: 30%;
   font-size: 10px;
   line-height: 18px;
   color: #A0A0A0;
+  text-align: right;
 }
 
 .moviecard__poster-container {
@@ -132,9 +138,20 @@
   .moviecard {
     padding: 18px 0;
   }
+
   .moviecard__info {
     margin-bottom: 18px;
     padding: 0 18px;
+  }
+
+  .moviecard__name {
+    font-size: 15px;
+    line-height: 18px;
+  }
+
+  .moviecard__duration {
+    font-size: 13px;
+    line-height: 18px;
   }
 }
 
@@ -145,11 +162,13 @@
   }
 
   .moviecard__duration {
+    width: 40%;
     font-size: 13px;
     line-height: 18px;
   }
 
   .moviecard__name {
+    width: 60%;
     font-size: 15px;
     line-height: 18px;
   }
