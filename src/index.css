@@ -31,7 +31,7 @@ body {
 
 @import url('./components/Header/Header.css');
 
-@import url('./components//Logo/Logo.css');
+@import url('./components/Logo/Logo.css');
 
 @import url('./components/Navigation/Navigation.css');
 
@@ -62,6 +62,8 @@ body {
 @import url('./components/Footer/Footer.css');
 
 @import url('./components/Movies/Movies.css');
+
+@import url('./components/Message/Message.css');
 
 @import url('./components/SearchForm/SearchForm.css');
 

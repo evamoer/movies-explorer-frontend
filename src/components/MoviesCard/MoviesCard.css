@@ -3,8 +3,8 @@
   padding: 14px 0;
   box-sizing: border-box;
   width: 100%;
-  min-width: 300px;
-  min-height: 271px;
+  max-width: 300px;
+  max-height: 271px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +24,7 @@
 .moviecard__name {
   margin: 0;
   padding: 0;
-  width: 70%;
+  width: 60%;
   font-weight: 500;
   font-size: 12px;
   line-height: 18px;
@@ -36,19 +36,24 @@
 .moviecard__duration {
   margin: 0;
   padding: 0;
-  width: 30%;
+  width: 40%;
   font-size: 10px;
   line-height: 18px;
   color: #A0A0A0;
   text-align: right;
 }
 
+.moviecard__poster-link {
+  display: inline-block;
+}
+
 .moviecard__poster-container {
   margin: 0 0 14px 0;
   padding: 0;
   width: 100%;
-  min-width: 300px;
-  min-height: 168px;
+  height: 168px;
+  /*max-width: 300px;*/
+  /*max-height: 168px;*/
   overflow: hidden;
 }
 
@@ -132,6 +137,12 @@
     padding: 0 14px;
     max-width: 500px;
   }
+
+  .moviecard__poster-container {
+    min-width: 300px;
+    min-height: 168px;
+  }
+
 }
 
 @media screen and (min-width: 425px) {
@@ -162,21 +173,19 @@
   }
 
   .moviecard__duration {
-    width: 40%;
     font-size: 13px;
     line-height: 18px;
   }
 
   .moviecard__name {
-    width: 60%;
     font-size: 15px;
     line-height: 18px;
   }
 
   .moviecard__poster-container {
     margin-bottom: 18px;
-    max-width: 342px;
-    max-height: 190px;
+    width: 342px;
+    height: 190px;
   }
 }
 
@@ -187,7 +196,7 @@
   }
 
   .moviecard__poster-container {
-    max-width: 360px;
-    max-height: 200px;
+    width: 360px;
+    height: 200px;
   }
 }

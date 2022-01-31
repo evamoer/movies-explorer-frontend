@@ -4,8 +4,6 @@ import Logo from '../Logo/Logo';
 import Form from '../Form/Form';
 import Input from '../Input/Input';
 import Submit from '../Submit/Submit';
-const registerSectionClassName = 'section_type_register';
-const registerContentClassName = 'register';
 const formElementClassName = 'form__element';
 
 const Register = () => {

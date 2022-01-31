@@ -3,7 +3,6 @@ import Preloader from "../Preloader/Preloader";
 import Section from "../Section/Section";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
-import { defaultMovies } from "../../utils/moviesSettings";
 
 const SavedMovies = () => {
 
@@ -14,15 +13,15 @@ const SavedMovies = () => {
 
   let uploadMoviesStatus = false;
   let updateButtonStatus = false;
-  const savedMovies = defaultMovies.filter((movie, index) => index < 3)
+  // const savedMovies = defaultMovies.filter((movie, index) => index < 3)
 
   return (
     <Section sectionName="savedmovies" sectionTitleText={null}>
-        <SearchForm/>
-        { (uploadMoviesStatus)
-        ? <Preloader/>
-        : <MoviesCardList movies={savedMovies} updateButtonStatus={updateButtonStatus}/>
-        }
+        {/*<SearchForm/>*/}
+        {/*{ (uploadMoviesStatus)*/}
+        {/*? <Preloader/>*/}
+        {/*: <MoviesCardList movies={savedMovies} updateButtonStatus={updateButtonStatus}/>*/}
+        {/*}*/}
     </Section>
   );
 };

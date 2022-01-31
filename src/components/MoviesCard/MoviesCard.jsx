@@ -1,28 +1,27 @@
 import React from 'react';
 import { useLocation } from "react-router-dom";
+import { convertMovieDuration } from "../../utils/helpers";
 
-const MoviesCard = ({ name, duration, poster, isSaved }) => {
-
-    /*
-  захардкоженные данные для отображения вёрстки согласно макету;
-  код будет изменён на этапе 4;
-  */
+const MoviesCard = ({ nameRU, duration, image, trailerLink, isSaved }) => {
 
   const location = useLocation();
+  const saveButtonClassName = `moviecard__save-button
+          ${isSaved ? 'moviecard__save-button_type_saved' : 'moviecard__save-button_type_not-saved'}
+          ${(location.pathname === '/savedmovies') && 'moviecard__save-button_type_remove'}`;
 
   return (
     <li className="moviecard movieslist__item">
       <div className="moviecard__info">
-        <h3 className="moviecard__name">{name}</h3>
-        <p className="moviecard__duration">{duration}</p>
+        <h3 className="moviecard__name">{nameRU}</h3>
+        <p className="moviecard__duration">{convertMovieDuration(duration)}</p>
       </div>
-      <figure className="moviecard__poster-container">
-        <img className="moviecard__poster-image" src={poster} alt={`постер к фильму ${name}`}/>
-      </figure>
+
+        <a className="moviecard__poster-container" href={trailerLink} target="_blank" rel="noreferrer">
+          <img className="moviecard__poster-image" src={image} alt={`постер к фильму ${nameRU}`}/>
+        </a>
+
       <button
-        className={`moviecard__save-button
-          ${isSaved ? 'moviecard__save-button_type_saved' : 'moviecard__save-button_type_not-saved'}
-          ${(location.pathname === '/savedmovies') && 'moviecard__save-button_type_remove'}`}>
+        className={saveButtonClassName}>
       </button>
     </li>
   );

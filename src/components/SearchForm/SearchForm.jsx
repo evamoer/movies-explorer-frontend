@@ -1,20 +1,20 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import useFormAndValidation from "../../hooks/validationHook";
 import FilterCheckbox from "../FilterCheckbox/FilterCheckbox";
 import Row from "../Row/Row";
-import {BASE_URL, getAllMovies} from "../../utils/MoviesApi";
 
 const SearchForm = ({ handleSearchSubmit }) => {
   const {values, handleChange, errors, isValid, setValues, resetForm} = useFormAndValidation();
 
   useEffect(() => {
     resetForm();
-    setValues({title: ''});
+    setValues({search: ''});
   }, [resetForm, setValues]);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    handleSearchSubmit();
+    handleSearchSubmit(values.search.toLowerCase());
+
   }
 
   return (
@@ -23,14 +23,14 @@ const SearchForm = ({ handleSearchSubmit }) => {
         <label className="search__label" htmlFor="search__input"/>
         <input
           type="text"
-          className={`search__input ${errors.title && "search__input_type_error"}`}
+          className={`search__input ${errors.search && "search__input_type_error"}`}
           placeholder="Фильм"
-          name="title"
+          name="search"
           id="search__input"
-          value={values.title || ''}
+          value={values.search || ''}
           onChange={handleChange}
           required/>
-        {errors.title && <span className="search__error">Нужно ввести ключевое слово.</span>}
+        {errors.search && <span className="search__error">Нужно ввести ключевое слово.</span>}
         <button type="submit" className="search__submit"/>
       </div>
       <Row rowClassName="search__row"/>

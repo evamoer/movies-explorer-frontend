@@ -1,5 +1,6 @@
-import React from 'react';
-import {Route, Switch, useLocation} from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { Route, Switch, useLocation } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
 import Movies from "../Movies/Movies";
@@ -9,20 +10,33 @@ import Profile from "../Profile/Profile";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import NotFound from "../NotFound/NotFound";
+import { getBeatfilmMovies } from "../../utils/MoviesApi";
+import { searchMovies } from "../../utils/helpers";
 
 const App = () => {
-
-    /*
-  захардкоженные данные с помощью useLocation для отображения вёрстки согласно макету;
-  можно изменить состояние loggedIn с false на true и обратно;
-  код будет изменён на этапе 4;
-  */
-
   const location = useLocation();
   let loggedIn = true;
 
+  const [currentUser, setCurrentUser] = useState({name: '', email: '', _id: ''});
+  const [beatfilmMovies, setBeatfilmMovies] = useState([])
+  const [userMovies, setUserMovies] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    getBeatfilmMovies()
+      .then(beatfilmMovies => setBeatfilmMovies(beatfilmMovies))
+      .catch(err => console.log(err))
+  }, [])
+
+  const handleFindMovies = (searchValue) => {
+    setIsLoading(true);
+    const filteredMovies = searchMovies(beatfilmMovies, searchValue);
+    setUserMovies(filteredMovies);
+    setIsLoading(false);
+  }
+
   return (
-    <>
+    <CurrentUserContext.Provider value={currentUser}>
       {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies') || (location.pathname === '/profile')) && <Header loggedIn={loggedIn}/>}
       <main className="content">
         <Switch>
@@ -30,7 +44,7 @@ const App = () => {
             <Main/>
           </Route>
             <Route exact path="/movies">
-              <Movies/>
+              <Movies movies={userMovies} isLoading={isLoading} handleFindMovies={handleFindMovies}/>
             </Route>
             <Route exact path="/savedmovies">
               <SavedMovies/>
@@ -50,7 +64,7 @@ const App = () => {
         </Switch>
       </main>
       {((location.pathname === '/') || (location.pathname === '/movies') || (location.pathname === '/savedmovies')) && <Footer/>}
-    </>
+    </CurrentUserContext.Provider>
   );
 }
 
