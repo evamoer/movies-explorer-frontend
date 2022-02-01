@@ -30,10 +30,14 @@ const App = () => {
 
   const handleFindMovies = (searchValue) => {
     setIsLoading(true);
-    const filteredMovies = searchMovies(beatfilmMovies, searchValue);
-    setUserMovies(filteredMovies);
-    setIsLoading(false);
+    const timer = setTimeout(() => {
+      const filteredMovies = searchMovies(beatfilmMovies, searchValue);
+      setUserMovies(filteredMovies);
+      setIsLoading(false);
+      clearTimeout(timer);
+    }, (1500));
   }
+
 
   return (
     <CurrentUserContext.Provider value={currentUser}>

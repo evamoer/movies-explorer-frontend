@@ -22,7 +22,6 @@ export const convertMovieDuration = (duration) => {
 
 export const searchMovies = (movies, searchValue) => {
   let filteredMovies = [];
-
   const SearchRegExp = new RegExp(searchValue, 'gi');
 
   movies.forEach((movie) => {
@@ -36,7 +35,40 @@ export const searchMovies = (movies, searchValue) => {
       filteredMovies.push(movie);
     }
   });
-  console.log(filteredMovies);
   return filteredMovies;
 }
 
+export const defineNumberMoviesToShow = () => {
+  let moviesToShow;
+  if (window.innerWidth >= 1280) {
+    moviesToShow = 12;
+  } else if (window.innerWidth < 1280 && window.innerWidth > 480) {
+    moviesToShow = 8;
+  } else {
+    moviesToShow = 5;
+  }
+  return moviesToShow;
+}
+
+export const defineNumberMoviesToUpload = () => {
+  let moviesToUpload;
+  if (window.innerWidth >= 1280) {
+    moviesToUpload = 3;
+  } else if (window.innerWidth < 1280 && window.innerWidth > 480) {
+    moviesToUpload = 2;
+  } else {
+    moviesToUpload = 2;
+  }
+  return moviesToUpload;
+}
+
+export const sliceMovies = (movies, numberMoviesToShow) => {
+  return movies.slice(0, numberMoviesToShow);
+}
+
+export const checkIsLoadMoreActive = (numberMoviesToShow, numberMoviesToUpload, allMovies) => {
+  if ((numberMoviesToShow + numberMoviesToUpload) >= allMovies.length) {
+    return false;
+  }
+  return true;
+}

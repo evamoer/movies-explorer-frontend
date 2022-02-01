@@ -3,7 +3,12 @@ import MoviesCard from "../MoviesCard/MoviesCard";
 import { BEATFILM_URL } from "../../utils/constants";
 
 
-const MoviesCardList = ({ movies, updateButtonStatus }) => {
+const MoviesCardList = ({ movies, updateButtonStatus, handleLoadMore }) => {
+
+  const handleLoadMoreButtonClick = () => {
+    handleLoadMore();
+  }
+
   return (
     <>
       <ul className="movieslist">
@@ -24,7 +29,7 @@ const MoviesCardList = ({ movies, updateButtonStatus }) => {
         ))}
       </ul>
         <div className="movieslist__more-container">
-          {updateButtonStatus && <button className="movieslist__more-button">Ещё</button>}
+          {updateButtonStatus && <button className="movieslist__more-button" onClick={handleLoadMoreButtonClick}>Ещё</button>}
         </div>
     </>
   );
