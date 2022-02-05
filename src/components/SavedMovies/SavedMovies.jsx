@@ -1,27 +1,79 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Preloader from "../Preloader/Preloader";
 import Section from "../Section/Section";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
+import Message from "../Message/Message";
 
-const SavedMovies = () => {
+/**
+ * SavedMovies - компонент с сохранёнными пользователем фильмами по роуту "/savedmovies".
+ *
+ * @param savedMovies - массив с сохранёнными фильмами пользователя
+ * @param filteredSavedMovies - массив с отфильтрованными фильмами
+ * @param isLoading - флаг для процесса обрбаотки запроса (статус: выполняется/выполнен)
+ * @param handleSearch - обработчик поиска по всем фильмам
+ * @param handleRemoveMovie - обработчик удаления фильма из сохранённых
+ */
+const SavedMovies = ({ savedMovies, filteredSavedMovies, isLoading, handleSearch, handleRemoveMovie }) => {
 
-  /*
-  захардкоженные данные для отображения вёрстки согласно макету;
-  код будет изменён на этапе 4;
-  */
+  /**
+   * Переменная с отображаемыми фильмами.
+   */
+  const [showedMovies, setShowedMovies] = useState([]);
 
-  let uploadMoviesStatus = false;
-  let updateButtonStatus = false;
-  // const savedMovies = defaultMovies.filter((movie, index) => index < 3)
+  /**
+   * Флаг, отображающий был ли поиск или нет.
+   */
+  const [isSearched, setIsSearched] = useState(false);
+
+  /**
+   * Хук для отображения фильмов:
+   * если не было поиска, показываем все сохранённые фильмы,
+   * если был, то отфильтрованные.
+   */
+  useEffect(() => {
+    if (!isSearched) {
+      setShowedMovies(savedMovies);
+    } else {
+      setShowedMovies(filteredSavedMovies);
+    }
+  }, [isSearched, filteredSavedMovies]);
+
+  /**
+   * Обработчик поискового запроса.
+   *
+   * @param searchValue - поисковое слово
+   * @param isChecked - состояние чекбокса, определяющий длительность фильма
+   */
+  const handleSearchSubmit = (searchValue, isChecked) => {
+   handleSearch(searchValue, isChecked);
+   setIsSearched(true);
+  };
+
+  /**
+   * Обработчик удаления фильма.
+   *
+   * @param movieData - объект с данными удаляемого фильма
+   * @param setIsSaved - функция установки/снятия флага "фильм сохранён" (здесь: снятие).
+   */
+  const handleRemoveButtonClick = (movieData, setIsSaved) => {
+    handleRemoveMovie(movieData, setIsSaved);
+  }
+
+
 
   return (
     <Section sectionName="savedmovies" sectionTitleText={null}>
-        {/*<SearchForm/>*/}
-        {/*{ (uploadMoviesStatus)*/}
-        {/*? <Preloader/>*/}
-        {/*: <MoviesCardList movies={savedMovies} updateButtonStatus={updateButtonStatus}/>*/}
-        {/*}*/}
+      <SearchForm handleSearchSubmit={handleSearchSubmit}/>
+      { isLoading
+        ? ( <Preloader />)
+        : ( (showedMovies.length)
+          ? (<MoviesCardList
+              movies={showedMovies}
+              handleRemoveButtonClick={handleRemoveButtonClick}
+          />)
+          : (<Message text={"Ничего не найдено"}/>))
+      }
     </Section>
   );
 };

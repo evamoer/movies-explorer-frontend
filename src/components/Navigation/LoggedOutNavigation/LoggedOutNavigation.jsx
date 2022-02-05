@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
+/**
+ * LoggedOutNavigation - компонент навигации при неавторизованном пользователе.
+ */
 const LoggedOutNavigation = () => {
 
   return (

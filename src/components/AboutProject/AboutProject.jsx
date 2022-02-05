@@ -2,6 +2,9 @@ import React from 'react';
 import Section from "../Section/Section";
 import Row from "../Row/Row";
 
+/**
+ * AboutProject - компонент "О проекте".
+ */
 const AboutProject = () => {
 
   return (

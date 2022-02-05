@@ -1,5 +1,12 @@
 import React from 'react';
 
+/**
+ * Section - компонент секции.
+ *
+ * @param children - внутренние компоненты
+ * @param sectionName - название секции
+ * @param sectionTitleText - заголовок секции
+ */
 const Section = ({ children, sectionName, sectionTitleText }) => {
   return (
     <section className={`section section_type_${sectionName}`}>

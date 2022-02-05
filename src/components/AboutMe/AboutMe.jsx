@@ -4,7 +4,11 @@ import Row from "../Row/Row";
 import Portfolio from "../Portfolio/Portfolio";
 import imagepath from '../../images/student.png';
 
+/**
+ * AboutMe - компонент "Обо мне".
+ */
 const AboutMe = () => {
+
   return (
     <Section sectionName = "aboutme" sectionTitleText="Студент">
       <Row rowClassName="aboutme__row"/>

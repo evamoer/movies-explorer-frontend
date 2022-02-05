@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   border: none;
+  border-radius: 50%;
   background-color: transparent;
   text-decoration: none;
   display: block;
@@ -12,4 +13,8 @@
 .logo__image {
   width: 38px;
   height: 38px;
+}
+
+.logo:focus-visible {
+ outline: 2px #3456F3 solid;
 }

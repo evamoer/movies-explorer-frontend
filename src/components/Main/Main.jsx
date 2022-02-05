@@ -4,7 +4,11 @@ import AboutProject from "../AboutProject/AboutProject";
 import Techs from "../Techs/Techs";
 import AboutMe from "../AboutMe/AboutMe";
 
+/**
+ * Main - компонент Main по роуту "/".
+ */
 const Main = () => {
+
   return (
     <>
       <Promo/>

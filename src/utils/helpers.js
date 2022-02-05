@@ -1,3 +1,8 @@
+/**
+ * Конвертер минут фильма в текст.
+ *
+ * @param duration - длительность фильма в минутах.
+ */
 export const convertMovieDuration = (duration) => {
   const hoursWords = ['час', 'часа', 'часов'];
   const minutesWords = ['минута', 'минуты', 'минут'];
@@ -20,7 +25,14 @@ export const convertMovieDuration = (duration) => {
   }
 }
 
-export const searchMovies = (movies, searchValue) => {
+/**
+ * Обработчик поиска по фильмам.
+ *
+ * @param movies - длительность фильма в минутах
+ * @param searchValue - поисковый текст
+ * @param isChecked - статус чекбокса
+ */
+export const searchMovies = (movies, searchValue, isChecked) => {
   let filteredMovies = [];
   const SearchRegExp = new RegExp(searchValue, 'gi');
 
@@ -32,43 +44,51 @@ export const searchMovies = (movies, searchValue) => {
       || SearchRegExp.test(nameEN)
       || SearchRegExp.test(nameRU)
       || SearchRegExp.test(year)) {
+
       filteredMovies.push(movie);
     }
   });
+  if (isChecked === true) {
+    return filteredMovies.filter((movie) => movie.duration <= 40);
+  }
   return filteredMovies;
 }
 
+/**
+ * Функция для определения количества показывыемых фильмов в зависимости от ширины экрана.
+ */
 export const defineNumberMoviesToShow = () => {
-  let moviesToShow;
   if (window.innerWidth >= 1280) {
-    moviesToShow = 12;
+    return 12;
   } else if (window.innerWidth < 1280 && window.innerWidth > 480) {
-    moviesToShow = 8;
-  } else {
-    moviesToShow = 5;
+    return 8;
   }
-  return moviesToShow;
+  return 5;
 }
 
+/**
+ * Функция для определения количества подгружаемых фильмов в зависимости от ширины экрана.
+ */
 export const defineNumberMoviesToUpload = () => {
-  let moviesToUpload;
   if (window.innerWidth >= 1280) {
-    moviesToUpload = 3;
+    return 3;
   } else if (window.innerWidth < 1280 && window.innerWidth > 480) {
-    moviesToUpload = 2;
-  } else {
-    moviesToUpload = 2;
+    return 2;
   }
-  return moviesToUpload;
+  return 2;
 }
 
+/**
+ * Функция для определения показываемых фильмов.
+ */
 export const sliceMovies = (movies, numberMoviesToShow) => {
   return movies.slice(0, numberMoviesToShow);
 }
 
-export const checkIsLoadMoreActive = (numberMoviesToShow, numberMoviesToUpload, allMovies) => {
-  if ((numberMoviesToShow + numberMoviesToUpload) >= allMovies.length) {
-    return false;
-  }
-  return true;
+/**
+ * Функция для определения статуса кнопки "Ещё".
+ */
+export const checkIsLoadMoreActive = (movies, numberMoviesToShow) => {
+  return (numberMoviesToShow >= movies.length) ? false : true;
 }
+

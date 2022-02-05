@@ -2,6 +2,9 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import logopath from '../../images/logo.svg';
 
+/**
+ * Logo - компонент логотипа на сайте.
+ */
 const Logo = () => {
 
   return (

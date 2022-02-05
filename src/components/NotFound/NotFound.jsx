@@ -1,8 +1,14 @@
 import React from 'react';
 import { useHistory } from "react-router-dom";
 
+/**
+ * NotFound - компонент для несуществующего роута.
+ */
 const NotFound = () => {
 
+  /**
+   * Хук для подключения history.
+   */
   let history = useHistory();
 
   return (

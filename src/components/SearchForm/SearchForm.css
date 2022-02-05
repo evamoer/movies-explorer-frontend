@@ -34,7 +34,7 @@
 
 .search__input:focus-visible {
   border-radius: 10px;
-  outline: black solid 2px;
+  outline: #3456F3 solid 2px;
 }
 
 .search__input_type_error{
@@ -81,7 +81,7 @@
 }
 
 .search__submit:focus-visible {
-  outline: black solid 2px;
+  outline: #3456F3 solid 2px;
 }
 
 .search__row {

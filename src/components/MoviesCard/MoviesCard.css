@@ -145,31 +145,16 @@
 
 }
 
-@media screen and (min-width: 425px) {
+@media screen and (min-width: 768px) {
   .moviecard {
     padding: 18px 0;
+    max-width: 342px;
+    max-height: 309px;
   }
 
   .moviecard__info {
     margin-bottom: 18px;
     padding: 0 18px;
-  }
-
-  .moviecard__name {
-    font-size: 15px;
-    line-height: 18px;
-  }
-
-  .moviecard__duration {
-    font-size: 13px;
-    line-height: 18px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .moviecard {
-    max-width: 342px;
-    max-height: 309px;
   }
 
   .moviecard__duration {

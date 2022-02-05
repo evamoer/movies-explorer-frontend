@@ -1,60 +1,34 @@
 import React from 'react';
 import Section from '../Section/Section';
 import Logo from '../Logo/Logo';
-import Form from '../Form/Form';
-import Input from '../Input/Input';
-import Submit from '../Submit/Submit';
-const formElementClassName = 'form__element';
+import LoggedOutForm from "../LoggedOutForm/LoggedOutForm";
 
-const Register = () => {
+/**
+ * Register - компонент авторизации пользователя по роуту "/signout".
+ *
+ * @param isError - статус ошибки при отправке формы
+ * @param handleRegister - обработчик регистрации пользователя
+ */
+const Register = ({ handleRegister, isError }) => {
 
-  /*
-  захардкоженные данные для отображения вёрстки согласно макету;
-  код будет изменён на этапе 4;
-  */
+  /**
+   * Обработчик регистрации пользователя.
+   *
+   * @param name - имя, вводимое пользователем
+   * @param email - email, вводимый пользователем
+   * @param password - пароль, вводимый пользователем
+   */
+  const handleRegisterFormSubmit = ({ name, password, email }) => {
+    handleRegister(name, password, email);
+  }
 
   return (
     <Section sectionName="register" sectionTitleText={null}>
       <div className="register__logo">
         <Logo />
       </div>
-      <h2 className="login__title">Добро пожаловать!</h2>
-      <Form>
-        <Input
-          type="text"
-          name="name"
-          value="Виталий"
-          labelText="Имя"
-          inputClassName={formElementClassName}
-          errorStatus={null}
-          errorMessage={null}
-          inputErrorClassName={null} />
-        <Input
-          type="text"
-          name="email"
-          value="pochta@yandex.ru"
-          labelText="E-mail"
-          inputClassName={formElementClassName}
-          errorStatus={null}
-          errorMessage={null}
-          inputErrorClassName={null} />
-        <Input
-          type="password"
-          name="password"
-          value="passwordpasswo"
-          labelText="Пароль"
-          inputClassName={formElementClassName}
-          errorStatus={true}
-          errorMessage={'Что-то пошло не так...'}
-          inputErrorClassName={null} />
-        <Submit
-          formName="register"
-          buttonText="Зарегистрироваться"
-          questionText="Уже зарегистрированы?"
-          linkText="Войти"
-          linkPath="/signin"
-          submitClassName={formElementClassName} />
-      </Form>
+      <h2 className="register__title">Добро пожаловать!</h2>
+      <LoggedOutForm type="register" isError={isError} handleFormSubmit={handleRegisterFormSubmit}/>
     </Section>
   );
 };

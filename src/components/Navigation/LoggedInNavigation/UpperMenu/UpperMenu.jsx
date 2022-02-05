@@ -1,6 +1,9 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 
+/**
+ * UpperMenu - компонент верхнего меню.
+ */
 const UpperMenu = () => {
 
   return (

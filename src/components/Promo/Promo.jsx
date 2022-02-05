@@ -1,6 +1,9 @@
 import React from 'react';
 import NavTab from "../NavTab/NavTab";
 
+/**
+ * Promo - компонент Промо по роуту "/".
+ */
 const Promo = () => {
   return (
     <section className="promo">

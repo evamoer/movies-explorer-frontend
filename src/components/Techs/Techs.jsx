@@ -2,7 +2,11 @@ import React from 'react';
 import Section from "../Section/Section";
 import Row from "../Row/Row";
 
+/**
+ * Techs - компонент Techs на роуте "/".
+ */
 const Techs = () => {
+
   return (
     <Section sectionName = "techs" sectionTitleText="Технологии">
       <Row rowClassName="techs__row"/>

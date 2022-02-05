@@ -1,6 +1,10 @@
 import React from 'react';
 
+/**
+ * NavTab - компонент навигации по роуту "/".
+ */
 const NavTab = () => {
+
   return (
     <nav className="navtab">
       <ul className="navtab__list">

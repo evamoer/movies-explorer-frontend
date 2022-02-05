@@ -3,23 +3,33 @@ import { useLocation } from "react-router-dom";
 import Logo from '../Logo/Logo';
 import Navigation from "../Navigation/Navigation";
 
-const Header = ({ loggedIn }) => {
+/**
+ * Header - компонент хэдера.
+ *
 
-  /*
-  захардкоженное изменение статуса залогиненного/незалогиненного пользователя
-  код будет изменён на этапе 4;
-  */
+ */
+const Header = ({ isLoggedIn }) => {
 
+  /**
+   * Хук для подключения location.
+   */
   const location = useLocation();
 
+  /**
+   * Переменная класса для header.
+   */
   const headerClassName = `header ${(location.pathname === '/') ? 'header_type_gray' : 'header_type_white'}`;
-  const headerContentClassName = `header__content ${loggedIn ? 'header__content_type_logged-in' : 'header__content_type_logged-out'}`;
+
+  /**
+   * Переменная класса для header__content.
+   */
+  const headerContentClassName = `header__content ${isLoggedIn ? 'header__content_type_logged-in' : 'header__content_type_logged-out'}`;
 
   return (
     <header className={headerClassName}>
       <div className={headerContentClassName}>
         <Logo />
-        <Navigation loggedIn={loggedIn}/>
+        <Navigation isLoggedIn={isLoggedIn}/>
       </div>
     </header>
   )

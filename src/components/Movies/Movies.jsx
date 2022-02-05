@@ -4,50 +4,134 @@ import Section from "../Section/Section";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Message from "../Message/Message";
-import { checkIsLoadMoreActive, defineNumberMoviesToShow, defineNumberMoviesToUpload, sliceMovies } from '../../utils/helpers';
+import {
+  defineNumberMoviesToShow,
+  defineNumberMoviesToUpload,
+  sliceMovies,
+  checkIsLoadMoreActive
+} from "../../utils/helpers";
 
-const Movies = ({ isLoading, movies, handleFindMovies }) => {
+/**
+ * Movies - компонент с фильмами из BeatfilmMoviesApi по роуту "/movies".
+ *
+ * @param movies - массив с отфильтрованными по запросу фильмами из BeatfilmMoviesApi
+ * @param handleSearch - обработчик поиска по всем фильмам
+ * @param handleSaveMovie - обработчик добавления фильма в сохранённые
+ * @param handleRemoveMovie - обработчик удаления фильма из сохранённых
+ * @param isLoading - флаг для процесса обрбаотки запроса (статус: выполняется/выполнен)
+ */
+const Movies = ({ movies, handleSearch, handleSaveMovie, handleRemoveMovie, isLoading }) => {
 
-  const [userMovies, setUserMovies] = useState([]);
+  /**
+   * Переменная с фильмами, сохранёнными в localStorage.
+   */
+  let storagedMovies = JSON.parse(localStorage.getItem('movies'));
+
+  /**
+   * Переменные для логики отображения фильмов в зависимости от разрешения экрана.
+   */
+  const [showedMovies, setShowedMovies] = useState([]);
   const [numberMoviesToShow, setNumberMoviesToShow] = useState(0);
   const [numberMoviesToUpload, setNumberMoviesToUpload] = useState(0);
   const [isLoadMore, setIsLoadMore] = useState(true);
 
+  /**
+   * Хук для отображения фильмов:
+   * из localStorage (при наличии) или отфильтрованных (при наличии),
+   * если фильмы отсутствуют, то показывается сообщение "Ничего не найдено".
+   *
+   * Количество отображаемых фильмов и подгружаемых по кнопке "Ещё"
+   * регулируется в зависимости от ширины экрана с помощью вспомогательных функций.
+   */
   useEffect(() => {
     setNumberMoviesToShow(defineNumberMoviesToShow());
     setNumberMoviesToUpload(defineNumberMoviesToUpload());
-    setUserMovies(sliceMovies(movies, numberMoviesToShow));
-    setIsLoadMore(checkIsLoadMoreActive(numberMoviesToShow, numberMoviesToUpload, movies));
-
+    if (movies.length === 0) {
+      setShowedMovies(sliceMovies(storagedMovies, numberMoviesToShow));
+      setIsLoadMore(checkIsLoadMoreActive(storagedMovies, defineNumberMoviesToShow()));
+    } else {
+      setShowedMovies(sliceMovies(movies, numberMoviesToShow));
+      setIsLoadMore(checkIsLoadMoreActive(movies, defineNumberMoviesToShow()));
+    }
     window.addEventListener('resize', handleWindowResize);
-
     return () => {
       window.removeEventListener('resize', handleWindowResize);
     }
-  }, [movies]);
+  }, [movies, numberMoviesToUpload]);
 
+  /**
+   * Обработчик изменения ширины экрана:
+   * изменяет количество подгружаемых видео.
+   */
   const handleWindowResize = () => {
     setTimeout(() => {
-      setNumberMoviesToUpload(defineNumberMoviesToUpload())
-    }, 1000);
+      if (!!localStorage.getItem('movies')) {
+        setNumberMoviesToUpload(defineNumberMoviesToUpload());
+      }
+    }, 500);
   };
 
-  const handleSearchSubmit = (searchValue) => {
-    handleFindMovies(searchValue);
-  };
-
+  /**
+   * Обработчик подгрузки фильмов по кику на кнопку "Ещё":
+   * изменяет количество подгружаемых видео.
+   * Фильмы берутся из localStorage (при наличии) или из отфильтрованных.
+   */
   const handleLoadMore = () => {
-    setIsLoadMore(checkIsLoadMoreActive(numberMoviesToShow, numberMoviesToUpload, movies));
-    setUserMovies(sliceMovies(movies, numberMoviesToShow + numberMoviesToUpload));
-    setNumberMoviesToShow(numberMoviesToShow + numberMoviesToUpload);
+    setNumberMoviesToShow(showedMovies.length + numberMoviesToUpload);
+    if (movies.length === 0) {
+      setShowedMovies(sliceMovies(storagedMovies, (showedMovies.length + numberMoviesToUpload)));
+      setIsLoadMore(checkIsLoadMoreActive(storagedMovies, (showedMovies.length + numberMoviesToUpload)));
+    } else {
+      setShowedMovies(sliceMovies(movies, (showedMovies.length + numberMoviesToUpload)));
+      setIsLoadMore(checkIsLoadMoreActive(movies, (showedMovies.length + numberMoviesToUpload)));
+    }
+  };
+
+  /**
+   * Обработчик поискового запроса.
+   *
+   * @param searchValue - поисковое слово
+   * @param isChecked - состояние чекбокса, определяющий длительность фильма
+   */
+  const handleSearchSubmit = (searchValue, isChecked) => {
+    handleSearch(searchValue, isChecked);
+  };
+
+  /**
+   * Обработчик сохранения фильма.
+   *
+   * @param movieData - объект с данными сохраняемого фильма
+   * @param setIsSaved - функция установки/снятия флага "фильм сохранён" (здесь: установка).
+   */
+  const handleSaveButtonClick = (movieData, setIsSaved) => {
+    handleSaveMovie(movieData, setIsSaved);
+  };
+
+  /**
+   * Обработчик удаления фильма.
+   *
+   * @param movieData - объект с данными удаляемого фильма
+   * @param setIsSaved - функция установки/снятия флага "фильм сохранён" (здесь: снятие).
+   */
+  const handleRemoveButtonClick = (movieData, setIsSaved) => {
+    handleRemoveMovie(movieData, setIsSaved);
   };
 
   return (
     <Section sectionName="movies" sectionTitleText={null}>
       <SearchForm handleSearchSubmit={handleSearchSubmit}/>
-      { isLoading
-        ? ( <Preloader />)
-        : ( (userMovies.length) ? (<MoviesCardList movies={userMovies} handleLoadMore={handleLoadMore} updateButtonStatus={isLoadMore}/>) : (<Message text={"Ничего не найдено"}/>))
+      {
+        isLoading
+        ? <Preloader />
+        : (showedMovies.length)
+          ? <MoviesCardList
+              movies={showedMovies}
+              handleSaveButtonClick={handleSaveButtonClick}
+              handleRemoveButtonClick={handleRemoveButtonClick}
+              handleLoadMore={handleLoadMore}
+              isLoadMore={isLoadMore}
+            />
+          : <Message text={"Ничего не найдено"}/>
       }
     </Section>
   );

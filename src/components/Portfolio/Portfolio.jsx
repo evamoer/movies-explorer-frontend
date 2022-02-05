@@ -1,7 +1,11 @@
 import React from 'react';
 import Row from "../Row/Row";
 
+/**
+ * Portfolio - компонент портфолио.
+ */
 const Portfolio = () => {
+
   return (
     <div className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>

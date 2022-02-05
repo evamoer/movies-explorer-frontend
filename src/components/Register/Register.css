@@ -20,6 +20,121 @@
   text-align: center;
 }
 
+.register__form {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 260px;
+  height: calc(100vh - 253px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register__form-element {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.register__form-element:last-of-type {
+  margin-bottom: 0;
+}
+
+.register__form-label {
+  margin-bottom: 10px;
+  font-size: 10px;
+  line-height: 12px;
+  color: #A0A0A0;
+}
+
+.register__form-input {
+  margin: 0;
+  padding: 15px;
+  background-color: #F4F4F4;
+  border: none;
+  border-radius: 8px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.register__form-input_type_error {
+  outline: 2px solid #EE3465;
+  color: #EE3465;
+}
+
+.register__form-error {
+  margin-top: 10px;
+  font-size: 10px;
+  line-height: 12px;
+  color: #EE3465;
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+}
+
+.register__form-submit {
+  align-items: center;
+  margin: auto 0 14px 0;
+  padding: 15px 0;
+  border: none;
+  border-radius: 3px;
+  background-color: #3456F3;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  text-align: center;
+  color: #fff;
+  opacity: 1;
+  cursor: pointer;
+  transition: opacity .2s linear;
+}
+
+.register__form-submit_type_disabled {
+  background-color: #A0A0A0;
+  pointer-events: none;
+}
+
+.register__form-submit:hover {
+  opacity: .8;
+}
+
+.register__form-prompt {
+  margin: 0 auto 30px;
+  max-width: 246px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.register__form-question {
+  margin: 0 7px 0 0;
+  padding: 0;
+  font-size: 12px;
+  line-height: 15px;
+  color: #A0A0A0;
+}
+
+.register__form-link {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 12px;
+  line-height: 15px;
+  color: #3456F3;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .2s linear;
+}
+
+.register__form-link:hover {
+  opacity: .8;
+}
+
 @media screen and (min-width: 425px) {
   .register {
     max-width: 396px;
@@ -34,5 +149,30 @@
     margin: 0 0 40px 0;
     max-width: 396px;
     text-align: left;
+  }
+
+  .register__form {
+    max-height: 413px;
+    max-width: 396px;
+  }
+
+  .register__form-submit {
+    margin-bottom: 16px;
+  }
+
+  .register__form-prompt {
+    margin: 0 auto;
+    max-width: 285px;
+  }
+
+  .register__form-question {
+    margin-right: 6px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  .register__form-link {
+    font-size: 14px;
+    line-height: 17px;
   }
 }

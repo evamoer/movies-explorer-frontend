@@ -2,11 +2,16 @@ import React from 'react';
 import LoggedOutNavigation from './LoggedOutNavigation/LoggedOutNavigation';
 import LoggedInNavigation from "./LoggedInNavigation/LoggedInNavigation";
 
-const Navigation = ({ loggedIn }) => {
+/**
+ * Navigation - компонент с навигацией.
+ *
+ * @param isLoggedIn - состояние авторизации пользователя.
+ */
+const Navigation = ({ isLoggedIn }) => {
 
   return (
     <>
-      { loggedIn ? <LoggedInNavigation /> : <LoggedOutNavigation /> }
+      { isLoggedIn ? <LoggedInNavigation /> : <LoggedOutNavigation /> }
     </>
   )
 }

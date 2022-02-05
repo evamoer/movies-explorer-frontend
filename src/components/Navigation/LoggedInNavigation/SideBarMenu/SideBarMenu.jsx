@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { NavLink } from "react-router-dom";
 
+/**
+ * SideBarMenu - компонент сайдбар-меню.
+ */
 const SideBarMenu = () => {
 
   const [isMenuOpened, setIsMenuOpened] = useState(false);

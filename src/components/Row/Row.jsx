@@ -1,6 +1,11 @@
 import React from 'react';
 
-const Row = ({rowClassName}) => {
+/**
+ * Row - компонент с линией.
+ *
+ * @param rowClassName - класс для линии.
+ */
+const Row = ({ rowClassName }) => {
   return (
       <hr className={`row ${rowClassName}`}/>
   );
