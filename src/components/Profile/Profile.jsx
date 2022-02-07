@@ -7,22 +7,16 @@ import Row from "../Row/Row";
 /**
  * Profile - компонент профиля пользователя по роуту "/profile".
  *
+ * @param isError - статус ошибки при отправке формы
  * @param handleUpdateProfile - обработчик обновления данных пользователя
  * @param handleLogout - обработчик выхода пользователя из аккаунта.
  */
-const Profile = ({ handleUpdateProfile, handleLogout }) => {
+const Profile = ({ isUpdated, isError, handleUpdateProfile, handleLogout }) => {
 
   /**
    * Переменная с контекстом текущего пользователя.
    */
   const currentUser = useContext(CurrentUserContext);
-
-  /**
-   * Переменные для логики работы инпутов при клике снаружи.
-   */
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const [isActive, setIsActive] = useState({name: false, email: false});
 
   /**
    * Переменные для обработки взаимодействия с формой и её валидации.
@@ -45,39 +39,8 @@ const Profile = ({ handleUpdateProfile, handleLogout }) => {
       name: currentUser.name,
       email: currentUser.email,
     });
-    if (!isActive.name || !isActive.email) {
-      setValues({
-        name: currentUser.name,
-        email: currentUser.email,
-      });
-    }
-  }, [resetForm, setValues, isActive]);
+  }, [resetForm, setValues]);
 
-  /**
-   * Хук для определения клика снаружи инпутов.
-   */
-  useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    }
-  }, []);
-
-  /**
-   * Обработчик клика снаружи инпута.
-   */
-  const handleClickOutside = (event) => {
-    if (nameRef.current && nameRef.current.contains(event.target)) {
-      setIsActive({name: true, ...isActive});
-    } else {
-      setIsActive({name: false, ...isActive});
-    }
-    if (emailRef.current && emailRef.current.contains(event.target)) {
-      setIsActive({email: true, ...isActive});
-    } else {
-      setIsActive({email: false, ...isActive});
-    }
-  };
 
   /**
    * Обработчик сабмита формы.
@@ -103,7 +66,6 @@ const Profile = ({ handleUpdateProfile, handleLogout }) => {
             type="text"
             name="name"
             id="name"
-            ref={nameRef}
             placeholder="Введите имя"
             value={values?.name || ""}
             onChange={handleChange}
@@ -121,7 +83,6 @@ const Profile = ({ handleUpdateProfile, handleLogout }) => {
             type="email"
             name="email"
             id="email"
-            ref={emailRef}
             placeholder="Введите email"
             value={values?.email || ""}
             onChange={handleChange}
@@ -129,6 +90,7 @@ const Profile = ({ handleUpdateProfile, handleLogout }) => {
           />
           {errors?.email && <span className="profile__error">{errors?.email}</span>}
         </div>
+        {isUpdated && <span className="profile__message">{isError ? "Что-то пошло не так..." : "Данные были изменены"}</span>}
         <button
           className={`profile__submit ${!isValid && 'profile__submit_type_disabled'}`}
           type="submit"

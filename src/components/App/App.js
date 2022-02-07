@@ -69,6 +69,7 @@ const App = () => {
   const [currentUser, setCurrentUser] = useState({name: '', email: '', _id: ''});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isError, setIsError] = useState(false);
+  const [isUpdated, setIsUpdated] = useState(false);
   const token = localStorage.getItem("token");
 
   /**
@@ -229,8 +230,21 @@ const App = () => {
    */
   const handleUpdateProfile = (name, email) => {
     updateUserData(name, email, token)
-      .then((userData) => setCurrentUser(userData))
-      .catch((err) => console.log(err));
+      .then((userData) => {
+        setIsUpdated(true);
+        setIsError(false);
+        setCurrentUser(userData);
+      })
+      .catch((err) => {
+        setIsError(true);
+        setIsUpdated(true);
+        console.log(err);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsUpdated(false);
+        }, 2000);
+      });
   }
 
   /**
@@ -274,6 +288,8 @@ const App = () => {
             isLoggedIn={isLoggedIn}
             path="/profile"
             component={Profile}
+            isUpdated={isUpdated}
+            isError={isError}
             handleUpdateProfile={handleUpdateProfile}
             handleLogout={handleLogout}
           />
