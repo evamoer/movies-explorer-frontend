@@ -4,10 +4,13 @@ import { Route, Redirect } from "react-router-dom";
 /**
  * ProtectedRoute - НОС-компонент с защищённым маршрутом.
  */
-const ProtectedRoute = ({ component: Component, ...props }) => {
+
+function ProtectedRoute({ component: Component, ...props }) {
   return (
     <Route>
-      { () => (props.isLoggedIn ? <Component {...props} /> : <Redirect to="/" />) }
+      {() =>
+        props.isLoggedIn ? <Component {...props} /> : <Redirect to="/" />
+      }
     </Route>
   );
 };

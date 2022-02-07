@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import {Route, Switch, useHistory, useLocation} from "react-router-dom";
+import {Redirect, Route, Switch, useHistory, useLocation} from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Header from "../Header/Header";
 import Main from "../Main/Main";
@@ -155,18 +155,6 @@ const App = () => {
   }
 
   /**
-   * Хук для для проверки наличия токена пользователя в LocalStorage при открытии сайта.
-   */
-  useEffect(() => {
-    checkUserToken();
-    if (location.pathname==='/signin' || location.pathname==='/signout') {
-      history.push('/movies');
-    } else {
-      history.push(location.pathname);
-    }
-  }, [isLoggedIn]);
-
-  /**
    * Функция для проверка наличия токена в localStorage.
    * При его наличии устанавливаем флаг isLoggedIn === true,
    * а также получаем данные текущего пользователя.
@@ -178,10 +166,18 @@ const App = () => {
         .then((userData) => {
           setCurrentUser(userData);
           setIsLoggedIn(true);
+          history.push("/movies");
         })
         .catch((err) => console.log(err));
     }
-  }, []);
+  }, [token]);
+
+  /**
+   * Хук для для проверки наличия токена пользователя в LocalStorage при открытии сайта.
+   */
+  useEffect(() => {
+    checkUserToken();
+  }, [isLoggedIn, token, history]);
 
   /**
    * Обработчик авторизации пользователя.
@@ -193,10 +189,10 @@ const App = () => {
     authorize(email, password)
       .then((userData) => {
         if (userData) {
-          setIsError(false);
           const { token } = userData;
           localStorage.setItem("token", token);
-          checkUserToken();
+          setIsError(false);
+          setIsLoggedIn(true);
           history.push("/movies");
         }
       })
@@ -290,6 +286,13 @@ const App = () => {
             <Route path="*">
               <NotFound/>
             </Route>
+          <Route>
+            {isLoggedIn ? (
+              <Redirect to="/movies" />
+            ) : (
+              <Redirect to="/" />
+            )}
+          </Route>
         </Switch>
       </main>
       {footerPresence && <Footer/>}
