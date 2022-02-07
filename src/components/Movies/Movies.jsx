@@ -23,13 +23,9 @@ import {
 const Movies = ({ movies, handleSearch, handleSaveMovie, handleRemoveMovie, isLoading }) => {
 
   /**
-   * Переменная с фильмами, сохранёнными в localStorage.
-   */
-  let storagedMovies = JSON.parse(localStorage.getItem('movies'));
-
-  /**
    * Переменные для логики отображения фильмов в зависимости от разрешения экрана.
    */
+  const [storagedMovies, setStoragedMovies] = useState([]);
   const [showedMovies, setShowedMovies] = useState([]);
   const [numberMoviesToShow, setNumberMoviesToShow] = useState(0);
   const [numberMoviesToUpload, setNumberMoviesToUpload] = useState(0);
@@ -46,9 +42,10 @@ const Movies = ({ movies, handleSearch, handleSaveMovie, handleRemoveMovie, isLo
   useEffect(() => {
     setNumberMoviesToShow(defineNumberMoviesToShow());
     setNumberMoviesToUpload(defineNumberMoviesToUpload());
-    if (movies.length === 0) {
-      setShowedMovies(sliceMovies(storagedMovies, numberMoviesToShow));
-      setIsLoadMore(checkIsLoadMoreActive(storagedMovies, defineNumberMoviesToShow()));
+    if (localStorage.getItem('movies')) {
+      setStoragedMovies(JSON.parse(localStorage.getItem('movies')));
+      setShowedMovies(sliceMovies(JSON.parse(localStorage.getItem('movies')), numberMoviesToShow));
+      setIsLoadMore(checkIsLoadMoreActive(JSON.parse(localStorage.getItem('movies')), defineNumberMoviesToShow()));
     } else {
       setShowedMovies(sliceMovies(movies, numberMoviesToShow));
       setIsLoadMore(checkIsLoadMoreActive(movies, defineNumberMoviesToShow()));
@@ -78,7 +75,7 @@ const Movies = ({ movies, handleSearch, handleSaveMovie, handleRemoveMovie, isLo
    */
   const handleLoadMore = () => {
     setNumberMoviesToShow(showedMovies.length + numberMoviesToUpload);
-    if (movies.length === 0) {
+    if (localStorage.getItem('movies')) {
       setShowedMovies(sliceMovies(storagedMovies, (showedMovies.length + numberMoviesToUpload)));
       setIsLoadMore(checkIsLoadMoreActive(storagedMovies, (showedMovies.length + numberMoviesToUpload)));
     } else {

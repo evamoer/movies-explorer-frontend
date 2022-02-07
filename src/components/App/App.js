@@ -90,7 +90,7 @@ const App = () => {
         setSavedMovies(movies);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [token]);
 
   /**
    * Обработчик поискового запроса:
@@ -171,14 +171,14 @@ const App = () => {
         })
         .catch((err) => console.log(err));
     }
-  }, [token]);
+  }, [history]);
 
   /**
    * Хук для для проверки наличия токена пользователя в LocalStorage при открытии сайта.
    */
   useEffect(() => {
     checkUserToken();
-  }, [isLoggedIn, token, history]);
+  }, [checkUserToken, token, history]);
 
   /**
    * Обработчик авторизации пользователя.
@@ -198,8 +198,14 @@ const App = () => {
         }
       })
       .catch((err) => {
+        setIsUpdated(true);
         setIsError(true);
         console.log(err);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsUpdated(false);
+        }, 3000);
       });
   }
 
@@ -217,8 +223,14 @@ const App = () => {
           handleLogin(email, password);
       })
       .catch((err) => {
+        setIsUpdated(true);
         setIsError(true);
         console.log(err);
+      })
+      .finally(() => {
+        setTimeout(() => {
+          setIsUpdated(false);
+        }, 3000);
       });
   }
 
@@ -243,7 +255,7 @@ const App = () => {
       .finally(() => {
         setTimeout(() => {
           setIsUpdated(false);
-        }, 2000);
+        }, 3000);
       });
   }
 
@@ -294,10 +306,10 @@ const App = () => {
             handleLogout={handleLogout}
           />
             <Route exact path="/signin">
-              <Login isError={isError} handleLogin={handleLogin}/>
+              <Login isError={isError} isUpdated={isUpdated} handleLogin={handleLogin}/>
             </Route>
             <Route exact path="/signup">
-              <Register isError={isError} handleRegister={handleRegister}/>
+              <Register isError={isError} isUpdated={isUpdated} handleRegister={handleRegister}/>
             </Route>
             <Route path="*">
               <NotFound/>

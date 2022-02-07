@@ -8,8 +8,9 @@ import LoggedOutForm from "../LoggedOutForm/LoggedOutForm";
  *
  * @param isError - статус ошибки при отправке формы
  * @param handleRegister - обработчик регистрации пользователя
+ * @param isUpdated - статус о попытке отправки формы
  */
-const Register = ({ handleRegister, isError }) => {
+const Register = ({ handleRegister, isError, isUpdated }) => {
 
   /**
    * Обработчик регистрации пользователя.
@@ -28,7 +29,7 @@ const Register = ({ handleRegister, isError }) => {
         <Logo />
       </div>
       <h2 className="register__title">Добро пожаловать!</h2>
-      <LoggedOutForm type="register" isError={isError} handleFormSubmit={handleRegisterFormSubmit}/>
+      <LoggedOutForm type="register" isError={isError} isUpdated={isUpdated} handleFormSubmit={handleRegisterFormSubmit}/>
     </Section>
   );
 };

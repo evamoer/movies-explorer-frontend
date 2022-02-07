@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 
 .form__element {
@@ -58,7 +59,16 @@
   left: 0;
 }
 
+.form__message {
+  position: absolute;
+  top: 245px;
+  font-size: 12px;
+  line-height: 14px;
+  color: #EE3465;
+}
+
 .form__submit {
+  width: 100%;
   align-items: center;
   margin: auto 0 14px 0;
   padding: 15px 0;

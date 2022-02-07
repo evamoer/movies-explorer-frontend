@@ -10,7 +10,7 @@ import { LOGGED_OUT_FORM_SETTINGS } from "../../utils/constants";
  * @param isError - статус ошибки при отправке формы
  * @param handleFormSubmit - обработчик нажатия на сабмит формы
  */
-const LoggedOutForm = ({ type, isError, handleFormSubmit }) => {
+const LoggedOutForm = ({ type, isError, isUpdated, handleFormSubmit }) => {
 
   /**
    * Переменные для обработки взаимодействия с формой и её валидации.
@@ -54,7 +54,7 @@ const LoggedOutForm = ({ type, isError, handleFormSubmit }) => {
         <div className="form__element">
           <label htmlFor="name" className="form__label">Имя</label>
           <input
-            className={`form__input ${errors?.name && 'form__input_type_error'}`}
+            className={`form__input ${(errors?.name || isError) && 'form__input_type_error'}`}
             type="text"
             name="name"
             id="name"
@@ -72,7 +72,7 @@ const LoggedOutForm = ({ type, isError, handleFormSubmit }) => {
         <div className="form__element">
           <label htmlFor="email" className="form__label">E-mail</label>
           <input
-            className={`form__input ${errors?.email && 'form__input_type_error'}`}
+            className={`form__input ${(errors?.email || isError) && 'form__input_type_error'}`}
             type="email"
             name="email"
             id="email"
@@ -97,9 +97,10 @@ const LoggedOutForm = ({ type, isError, handleFormSubmit }) => {
             onChange={handleChange}
             required
           />
-          {(errors?.password || isError) && <span className="form__error">{errors?.password || "Что-то пошло не так..."}</span>}
+          {(errors?.password) && <span className="form__error">{errors?.password}</span>}
         </div>
       )}
+      {isUpdated && isError && <span className="form__message">Что-то пошло не так...</span> }
       <button
         className={`form__submit form__element ${!isValid && 'form__submit_type_disabled'}`}
         type="submit"

@@ -8,8 +8,9 @@ import LoggedOutForm from "../LoggedOutForm/LoggedOutForm";
  *
  * @param isError - статус ошибки при отправке формы
  * @param handleLogin - обработчик авторизации пользователя
+ * @param isUpdated - статус о попытке отправки формы
  */
-const Login = ({  isError, handleLogin }) => {
+const Login = ({  isError, isUpdated, handleLogin }) => {
 
   /**
    * Обработчик сабмита формы авторизации пользователя.
@@ -27,7 +28,7 @@ const Login = ({  isError, handleLogin }) => {
         <Logo />
       </div>
       <h2 className="login__title">Рады видеть!</h2>
-      <LoggedOutForm type="login" isError={isError} handleFormSubmit={handleLoginFormSubmit}/>
+      <LoggedOutForm type="login" isError={isError} isUpdated={isUpdated} handleFormSubmit={handleLoginFormSubmit}/>
     </Section>
   );
 };

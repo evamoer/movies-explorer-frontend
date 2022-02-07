@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useRef, useState} from 'react';
+import React, { useContext, useEffect } from 'react';
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Section from '../Section/Section';
 import useFormAndValidation from "../../hooks/validationHook";
@@ -7,6 +7,7 @@ import Row from "../Row/Row";
 /**
  * Profile - компонент профиля пользователя по роуту "/profile".
  *
+ * @param isUpdated - статус о попытке отправки формы
  * @param isError - статус ошибки при отправке формы
  * @param handleUpdateProfile - обработчик обновления данных пользователя
  * @param handleLogout - обработчик выхода пользователя из аккаунта.
@@ -39,7 +40,7 @@ const Profile = ({ isUpdated, isError, handleUpdateProfile, handleLogout }) => {
       name: currentUser.name,
       email: currentUser.email,
     });
-  }, [resetForm, setValues]);
+  }, [resetForm, setValues, currentUser.name, currentUser.email]);
 
 
   /**
