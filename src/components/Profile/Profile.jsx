@@ -107,7 +107,6 @@ const Profile = ({ isUpdated, isError, handleUpdateProfile, handleLogout }) => {
           Выйти из аккаунта
         </button>
       </form>
-        }
     </Section>
   );
 };
