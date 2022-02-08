@@ -162,23 +162,28 @@ const App = () => {
    */
   const checkUserToken = useCallback(() => {
     const token = localStorage.getItem("token");
+    const notAuthPaths = location.pathname === "/signin" || location.pathname === "/signup";
     if (token) {
       isTokenValid(token)
         .then((userData) => {
           setCurrentUser(userData);
           setIsLoggedIn(true);
-          history.push("/movies");
+          if (notAuthPaths) {
+            history.push("/movies")
+          } else {
+            history.push(location.pathname);
+          }
         })
         .catch((err) => console.log(err));
     }
-  }, [history]);
+  }, [isLoggedIn, token]);
 
   /**
    * Хук для для проверки наличия токена пользователя в LocalStorage при открытии сайта.
    */
   useEffect(() => {
     checkUserToken();
-  }, [checkUserToken, token, history]);
+  }, []);
 
   /**
    * Обработчик авторизации пользователя.
