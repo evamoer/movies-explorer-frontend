@@ -64,7 +64,7 @@ const SavedMovies = ({ savedMovies, filteredSavedMovies, isLoading, handleSearch
     <Section sectionName="savedmovies" sectionTitleText={null}>
       <SearchForm
         handleSearchSubmit={handleSearchSubmit}
-        showedMovies={showedMovies}
+        showedMovies={savedMovies}
       />
       { isLoading
         ? <Preloader />
