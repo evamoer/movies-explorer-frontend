@@ -3,6 +3,7 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import Section from '../Section/Section';
 import useFormAndValidation from "../../hooks/validationHook";
 import Row from "../Row/Row";
+import {messages} from "../../utils/constants";
 
 /**
  * Profile - компонент профиля пользователя по роуту "/profile".
@@ -41,7 +42,6 @@ const Profile = ({ isUpdated, isError, handleUpdateProfile, handleLogout }) => {
       email: currentUser.email,
     });
   }, [resetForm, setValues, currentUser.name, currentUser.email]);
-
 
   /**
    * Обработчик сабмита формы.
@@ -91,17 +91,23 @@ const Profile = ({ isUpdated, isError, handleUpdateProfile, handleLogout }) => {
           />
           {errors?.email && <span className="profile__error">{errors?.email}</span>}
         </div>
-        {isUpdated && <span className="profile__message">{isError ? "Что-то пошло не так..." : "Данные были изменены"}</span>}
-        <button
-          className={`profile__submit ${!isValid && 'profile__submit_type_disabled'}`}
-          type="submit"
-        >
+        {
+          isUpdated &&
+          <span className="profile__message">
+            {isError ? messages.commonErrorFormMessage : messages.commonSuccessFormMessage}
+          </span>
+        }
+            <button
+              className={`profile__submit ${!isValid && 'profile__submit_type_disabled'}`}
+              type="submit"
+            >
           Редактировать
         </button>
         <button type="button" className="profile__logout-button" onClick={handleLogout}>
           Выйти из аккаунта
         </button>
       </form>
+        }
     </Section>
   );
 };

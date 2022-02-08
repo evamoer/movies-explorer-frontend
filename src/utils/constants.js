@@ -9,6 +9,15 @@ export const BEATFILM_URL = 'https://api.nomoreparties.co';
 export const SERVER_URL = 'https://movies-explorer-evamoer.nomoredomains.rocks/api';
 
 /**
+ * Константы сообщений приложения.
+ */
+export const messages = {
+  noMoviesText: "Ничего не найдено",
+  commonErrorFormMessage: "Что-то пошло не так...",
+  commonSuccessFormMessage: "Данные успешно изменены",
+}
+
+/**
  * Настройки формы для неавторизованного пользователя.
  */
 export const LOGGED_OUT_FORM_SETTINGS = {

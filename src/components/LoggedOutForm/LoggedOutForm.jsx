@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from "react-router-dom";
 import useFormAndValidation from "../../hooks/validationHook";
-import { LOGGED_OUT_FORM_SETTINGS } from "../../utils/constants";
+import {LOGGED_OUT_FORM_SETTINGS, messages} from "../../utils/constants";
 
 /**
  * LoggedOutForm - компонент формы на неавторизованных роутах.
@@ -100,7 +100,7 @@ const LoggedOutForm = ({ type, isError, isUpdated, handleFormSubmit }) => {
           {(errors?.password) && <span className="form__error">{errors?.password}</span>}
         </div>
       )}
-      {isUpdated && isError && <span className="form__message">Что-то пошло не так...</span> }
+      {isUpdated && isError && <span className="form__message">{messages.commonErrorFormMessage}</span> }
       <button
         className={`form__submit form__element ${!isValid && 'form__submit_type_disabled'}`}
         type="submit"

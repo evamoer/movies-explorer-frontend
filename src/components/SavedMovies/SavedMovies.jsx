@@ -4,6 +4,7 @@ import Section from "../Section/Section";
 import SearchForm from "../SearchForm/SearchForm";
 import MoviesCardList from "../MoviesCardList/MoviesCardList";
 import Message from "../Message/Message";
+import {messages} from "../../utils/constants";
 
 /**
  * SavedMovies - компонент с сохранёнными пользователем фильмами по роуту "/savedmovies".
@@ -73,7 +74,7 @@ const SavedMovies = ({ savedMovies, filteredSavedMovies, isLoading, handleSearch
               movies={showedMovies}
               handleRemoveButtonClick={handleRemoveButtonClick}
             />
-          : <Message text={"Ничего не найдено"}/>
+          : <Message text={messages.noMoviesText}/>
       }
     </Section>
   );

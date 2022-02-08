@@ -10,6 +10,7 @@ import {
   sliceMovies,
   checkIsLoadMoreActive
 } from "../../utils/helpers";
+import {messages} from "../../utils/constants";
 
 /**
  * Movies - компонент с фильмами из BeatfilmMoviesApi по роуту "/movies".
@@ -131,7 +132,7 @@ const Movies = ({ movies, handleSearch, handleSaveMovie, handleRemoveMovie, isLo
               handleLoadMore={handleLoadMore}
               isLoadMore={isLoadMore}
             />
-          : <Message text={"Ничего не найдено"}/>
+          : <Message text={messages.noMoviesText}/>
       }
     </Section>
   );
