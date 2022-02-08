@@ -5,7 +5,7 @@ import { useLocation } from "react-router-dom";
  * FilterCheckbox - компонент чекбокс в форме поиска.
  * Определяет длительность искомых фильмов.
  */
-const FilterCheckbox = () => {
+const FilterCheckbox = ({ handleCheckboxChange }) => {
 
   /**
    * Хук для подключения location.
@@ -33,11 +33,13 @@ const FilterCheckbox = () => {
    * Обработчик изменения состояния чекбокса.
    * При нахождении на странице /movies состояние сохраняется в localStorage.
    */
-  const handleCheckboxChange = (evt) => {
-    setIsChecked(evt.target.checked);
+  const handleChange = (evt) => {
+    let checkboxStatus = evt.target.checked;
+    setIsChecked(checkboxStatus);
     if (location.pathname === '/movies') {
-      localStorage.setItem('movies-checkbox', evt.target.checked);
+      localStorage.setItem('movies-checkbox', checkboxStatus);
     }
+    handleCheckboxChange(checkboxStatus);
   }
 
   return (
@@ -49,7 +51,7 @@ const FilterCheckbox = () => {
           name="checkbox"
           id="checkbox"
           checked={isChecked}
-          onChange={handleCheckboxChange}
+          onChange={handleChange}
         />
         <span className="filter__checkbox filter__checkbox_type_span"></span>
       </label>

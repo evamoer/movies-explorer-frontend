@@ -116,7 +116,10 @@ const Movies = ({ movies, handleSearch, handleSaveMovie, handleRemoveMovie, isLo
 
   return (
     <Section sectionName="movies" sectionTitleText={null}>
-      <SearchForm handleSearchSubmit={handleSearchSubmit}/>
+      <SearchForm
+        handleSearchSubmit={handleSearchSubmit}
+        showedMovies={showedMovies}
+      />
       {
         isLoading
         ? <Preloader />

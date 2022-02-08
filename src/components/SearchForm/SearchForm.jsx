@@ -9,7 +9,7 @@ import useFormAndValidation from "../../hooks/validationHook";
  *
  * @param handleSearchSubmit - обработчик поиска по всем фильмам
  */
-const SearchForm = ({ handleSearchSubmit }) => {
+const SearchForm = ({ handleSearchSubmit, showedMovies }) => {
 
   /**
    * Хук для подключения location.
@@ -43,11 +43,18 @@ const SearchForm = ({ handleSearchSubmit }) => {
   const handleSubmit = (evt) => {
     evt.preventDefault();
     let searchValue = values.search.toLowerCase();
-    let checkboxValue = evt.target.checkbox.checked;
+    let checkboxStatus = evt.target.checkbox.checked;
     if (location.pathname === '/movies') {
       localStorage.setItem('movies-search', searchValue);
     }
-    handleSearchSubmit(searchValue, checkboxValue);
+    handleSearchSubmit(searchValue, checkboxStatus);
+  }
+
+  const handleCheckboxChange = (checkboxStatus) => {
+    let searchValue = values.search.toLowerCase();
+    if (showedMovies.length !== 0) {
+      handleSearchSubmit(searchValue, checkboxStatus);
+    }
   }
 
   return (
@@ -67,7 +74,7 @@ const SearchForm = ({ handleSearchSubmit }) => {
         <button type="submit" className="search__submit"/>
       </div>
       <Row rowClassName="search__row"/>
-      <FilterCheckbox/>
+      <FilterCheckbox handleCheckboxChange={handleCheckboxChange}/>
     </form>
   );
 };

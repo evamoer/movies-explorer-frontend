@@ -60,19 +60,20 @@ const SavedMovies = ({ savedMovies, filteredSavedMovies, isLoading, handleSearch
     handleRemoveMovie(movieData, setIsSaved);
   }
 
-
-
   return (
     <Section sectionName="savedmovies" sectionTitleText={null}>
-      <SearchForm handleSearchSubmit={handleSearchSubmit}/>
+      <SearchForm
+        handleSearchSubmit={handleSearchSubmit}
+        showedMovies={showedMovies}
+      />
       { isLoading
-        ? ( <Preloader />)
-        : ( (showedMovies.length)
-          ? (<MoviesCardList
+        ? <Preloader />
+        : showedMovies.length
+          ? <MoviesCardList
               movies={showedMovies}
               handleRemoveButtonClick={handleRemoveButtonClick}
-          />)
-          : (<Message text={"Ничего не найдено"}/>))
+            />
+          : <Message text={"Ничего не найдено"}/>
       }
     </Section>
   );
