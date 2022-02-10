@@ -38,7 +38,7 @@ const SavedMovies = ({ savedMovies, filteredSavedMovies, isLoading, handleSearch
     } else {
       setShowedMovies(filteredSavedMovies);
     }
-  }, [isSearched, filteredSavedMovies]);
+  }, [isSearched, savedMovies, filteredSavedMovies]);
 
   /**
    * Обработчик поискового запроса.
