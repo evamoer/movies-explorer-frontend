@@ -39,7 +39,6 @@ export const searchMovies = (movies, searchValue, isChecked) => {
   movies.forEach((movie) => {
     const { country, description, director, nameEN, nameRU, year } = movie;
     if (SearchRegExp.test(country)
-      || SearchRegExp.test(description)
       || SearchRegExp.test(director)
       || SearchRegExp.test(nameEN)
       || SearchRegExp.test(nameRU)
